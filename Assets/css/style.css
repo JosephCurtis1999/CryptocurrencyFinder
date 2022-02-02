@@ -29,7 +29,7 @@ font-variant: small-caps;
 }
 
 .custom-date{
-  padding-right:50px;
+  margin-right: 400px;
 }
 @media screen and (max-width: 768px) {
   .custom-search-div{
