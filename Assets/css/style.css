@@ -28,7 +28,9 @@ font-variant: small-caps;
   border-radius: 10px;
 }
 
-
+.custom-date{
+  padding-right:50px;
+}
 @media screen and (max-width: 768px) {
   .custom-search-div{
     margin-top: 6%;;
