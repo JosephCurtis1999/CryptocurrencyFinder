@@ -11,9 +11,21 @@ $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
 var coinForm = document.getElementById("coin-form");
 
+var getCryptoCurrency=function(userInput){
+    var apiURL = "https://api.coinbase.com/v2/prices/:currency_pair/buy"
+    fetch(apiURL)
+        .then(function (response) {
+        return response.json();}
+        )
+        .then(function (data) {
+        console.log(data)
+})
+}
+
+//Event Listener for form
 coinForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
   var userInput = document.getElementById("textarea1").value.trim();
   console.log(userInput);
-});
+  getCryptoCurrency(userInput);
+})
