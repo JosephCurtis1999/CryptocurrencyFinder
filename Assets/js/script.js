@@ -7,5 +7,13 @@ var currentDate =
   moment().format("dddd") + " " + moment().format("Do MMM YYYY");
 
 var momentNow = moment();
-  $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
+$("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
+var coinForm = document.getElementById("coin-form");
+
+coinForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  var userInput = document.getElementById("textarea1").value.trim();
+  console.log(userInput);
+});
