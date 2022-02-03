@@ -6,5 +6,5 @@ var currentDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY")
 
 var interval = setInterval(function () {
     var momentNow = moment();
-    $('#currentDay').html(momentNow.format('dddd') + " " + momentNow.format('DD MMMM YYYY'));
+    $('#currentDay').html(momentNow.format('DD MMMM YYYY'));
 }, 100);
