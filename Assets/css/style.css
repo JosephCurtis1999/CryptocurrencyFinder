@@ -60,6 +60,15 @@ h5{
   color:#1a237e;
 }
 
+.custom-news-images{
+  height:370px;
+}
+
+.custom-news-p{
+  color:#ffab00 ;
+  text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
   .custom-btn {
     margin-top:0;
