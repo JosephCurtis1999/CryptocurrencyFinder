@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Link to bulma -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/> -->
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
     <!-- Link to Materialize Css framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Link to css -->
@@ -22,7 +19,7 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
   />
-</head>
+    </head>
 
   <body>
       <!-- header -->
@@ -46,46 +43,108 @@
     </header>
   
 
-
-    <div class="row custom-search-div">
-        <form class="col s12" id="coin-form">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">Search for a CyptoCurrency</label>
-            </div>
-            <div class="custom-btn">
-                <!-- button  -->
-               <button class="btn waves-effect waves-light indigo darken-4" type="submit" id="search-btn">Search 
-                <i class="fas fa-search"></i>
-               </button> 
+<!-- form and button -->
+    <div class="row ">
+        <div class="col s12 m4 l2"></div>
+        
+        <form id="coin-form">
+        <div class="col s12 m4 l8 custom-search-div "> 
+            <div class="input-field">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Search for a CyptoCurrency</label>
             </div>  
-          </div>
-        </form>
-      </div>   
-      
-      <div class="row custom-card card-panel hoverable">
-        <div class="col s12">
-          <div class="card">
-            <div class="card-image">
-              <img src="./Assets/Images/BTC_3M_graph_coinmarketcap.jpg" alt="bitcoin-chart">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <h5>Price:</h5>
-                <h5>Market cap:</h5>
-                <h5>Volume(24h):</h5>
-                <h5>24h %:</h5>
-                <h5>7d %:</h5>
-            </div>
-            <div class="card-action center-align">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
         </div>
+    
+      
+        <div class="col s12 l2">
+            <div class="custom-btn">
+               <button class="btn-floating waves-effect waves-light indigo darken-4 pulse" type="submit" id="search-btn"> 
+                <i class="fas fa-search"> </i>
+               </button> 
+              
+        </div>
+        </div>
+    </form>
+    </div>
+
+
+        <div class="row">
+<!-- search history -->
+        <div class="col s12 m4 l2">
+        <!-- Note that "m4 l3" was added -->
+          <!-- Grey navigation panel
+                This content will be:
+            3-columns-wide on large screens,
+            4-columns-wide on medium screens,
+            12-columns-wide on small screens  -->
+            <ul class="collection with-header custom-search-history">
+                <li class="collection-header"><h5>Search History</h5></li>
+                <li class="collection-item hoverable"><button class="custom-btn-history">Bitcoin</button></li>
+                <li class="collection-item hoverable"><button class="custom-btn-history">Litecoin</button></li>
+                <li class="collection-item hoverable"><button class="custom-btn-history">Ethereum</button></li>
+                <li class="collection-item hoverable"><button class="custom-btn-history">Ethereum Classic</button></li>
+                <li class="collection-item hoverable"><button class="custom-btn-history">Zcash </button></li>
+              </ul>
+        </div>
+
+<!-- Data and image -->
+        <div class="col s12 m8 l10"> 
+        <!-- Note that "m8 l9" was added -->
+          <!-- Teal page content
+                This content will be:
+            9-columns-wide on large screens,
+            8-columns-wide on medium screens,
+            12-columns-wide on small screens  -->
+            <div class="row"> 
+                <div class="col s12"> 
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="./Assets/Images/BTC_3M_graph_coinmarketcap.jpg" alt="bitcoin-chart">
+                    </div>
+                    <p class="custom-title">Bitcoin</p>
+                    <div class="card-content">
+                        
+                        <table class="highlight">
+                            <tbody>
+                              <tr>
+                                  <th>Price</th>
+                                  <td>P</td>
+                              </tr>
+                              <tr>
+                                <th>Market cap</th>
+                                <td>MC</td>
+                              </tr>
+                              <tr>
+                                <th>Volume (24h)</th>
+                                <td>V</td>
+                              </tr>
+                              <tr>
+                                <th>24h%</th>
+                                <td>2</td>
+                              </tr>
+                              <tr>
+                                <th>7dh%</th>
+                                <td>7</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+        </div>
+  
       </div>
 
-      <div class="row custom-card card-panel hoverable">
+
+
+
+
+
+
+      <!-- <div class="row custom-card card-panel hoverable">
         <div class="col s12">
           <div class="card">
             <div><span class="card-title">Daily CryptoGuide News</span></div>
@@ -97,7 +156,6 @@
                   <li id="News1">Info1</li>
                   <li id="News1">Info2</li>
                   <li><a href="#">Article Link</a></li>
-                  <!-- Promo Content 3 goes here -->
                 </div>
 
                 <div class="col s4" id="newsCard2">
@@ -106,7 +164,6 @@
                   <li id="News1">Info1</li>
                   <li id="News1">Info2</li>
                   <li><a href="#">Article Link</a></li>
-                  <!-- Promo Content 3 goes here -->
                 </div>
 
                 <div class="col s4" id="newsCard3">
@@ -115,14 +172,13 @@
                   <li id="News1">Info1</li>
                   <li id="News1">Info2</li>
                   <li><a href="#">Article Link</a></li>
-                  <!-- Promo Content 3 goes here -->
                 </div>
 
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     <!-- Materialize JS -->
