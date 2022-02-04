@@ -65,7 +65,8 @@ h5{
 }
 
 .custom-news-p{
-  color:#ffab00 ;
+  color:#1a237e;
+  font-weight:bold;
   text-align: center;
 }
 
@@ -74,6 +75,7 @@ footer{
  font-style: italic;
  font-weight: 5px;
 }
+
 
 @media screen and (max-width: 1300px) {
   .custom-news-images{

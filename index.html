@@ -62,7 +62,7 @@
                <button class="btn-floating waves-effect waves-light indigo darken-4 pulse" type="submit" id="search-btn"> 
                 <i class="fas fa-search"> </i>
                </button> 
-              
+               
         </div>
         </div>
     </form>
@@ -102,7 +102,7 @@
                     <div class="card-image">
                       <img src="./Assets/Images/BTC_3M_graph_coinmarketcap.jpg" alt="bitcoin-chart">
                     </div>
-                    <p class="custom-title">Bitcoin</p>
+                    <p class="custom-title"><span id="display-currency"></span></p>
                     <div class="card-content">
                         
                         <table class="highlight">
@@ -139,59 +139,59 @@
                       <div class="card">
                         <div class="card-image">
                           <img src="./Assets/Images/img1.jpg" class="custom-news-images">
-                          <span class="card-title"><i class="material-icons">camera  </i></span>
+                          <span class="card-title " id="source-0">source</span>
+                          
                         </div>
                         <div class="card-content">
-                          <p>I am a very simple card. I am good at containing small bits of information.
-                          I am convenient because I require little markup to use effectively.</p>
+                            <p><span id="content-0"></span><a id="read-more-0"  target="_blank">Read More</a></p>
+                         
                         </div>
                         <div class="card-action">
-                            <p class="custom-news-p">CryptoGuide News</p>
+                            <p class="custom-news-p"><span id="title-0">CryptoGuide News</span></p>
                         </div>
                       </div>
                     </div>
-                    <div class="col s12 l6">
+
+                    <div class="col s12 l6 custom-height">
                         <div class="card">
                           <div class="card-image">
                             <img src="./Assets/Images/img2.jpg" class="custom-news-images">
-                            <span class="card-title"><i class="material-icons">camera  </i></span>
+                            <span class="card-title custom-card-title" id="source-1">source</span>
                           </div>
                           <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                            <p><span id="content-1"></span><span id="content-1"><a id="read-more-1" target="_blank">Read More</a></span></p>
                           </div>
                           <div class="card-action">
-                            <p class="custom-news-p">CryptoGuide News</p>
+                            <p class="custom-news-p"><span id="title-1">CryptoGuide News</span></p>
                           </div>
                         </div>
                       </div>
                       <div class="col s12 l6">
                         <div class="card">
                           <div class="card-image">
-                            <img src="./Assets/Images/img3.jpg" class="custom-news-images"> 
-                            <span class="card-title"><i class="material-icons">camera </i></span>
+                            <img src="./Assets/Images/img3.jpg" class="custom-news-images">
+                            <span class="card-title custom-card-title" id="source-2">source</span>
                           </div>
                           <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                            <p><span id="content-2"></span><a id="read-more-2" target="_blank">Read More</a></p>
                           </div>
                           <div class="card-action">
-                            <p class="custom-news-p">CryptoGuide News</p>
+                            <p class="custom-news-p"><span id="title-2">CryptoGuide News</span></p>
                           </div>
                         </div>
                       </div>
+
                       <div class="col s12 l6">
                         <div class="card">
                           <div class="card-image">
                             <img src="./Assets/Images/img4.jpg" class="custom-news-images">
-                            <span class="card-title"><i class="material-icons">camera </i></span>
+                            <span class="card-title custom-card-title" id="source-3">source</span>
                           </div>
                           <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                            <p><span id="content-3"></span><a id="read-more-3" target="_blank">Read More</a></p>
                           </div>
                           <div class="card-action">
-                            <p class="custom-news-p">CryptoGuide News</p>
+                            <p class="custom-news-p"><span id="title-3">CryptoGuide News</span></p>
                           </div>
                         </div>
                       </div>
@@ -200,7 +200,17 @@
               </div>
               </div>
             </div>
-
+    <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Error</h4>
+            <p>Please enter a valid CryptoCurrency</p>
+        </div>
+        <div class="modal-footer">
+        <a href="index.html" class="modal-close waves-effect waves-green btn-flat">ok</a>
+        </div>
+        </div>
+        
               <footer>
                     <p>© 2020 Copyright CryptoGuide </p>
             </footer>
