@@ -10,9 +10,11 @@ var momentNow = moment();
 $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
 var coinForm = document.getElementById("coin-form");
+//api news
+// my api key for news pub_42803e674039751e4b30dc24c745534322c8
 
 var getCryptoCurrency=function(userInput){
-    var apiURL = "https://api.coinbase.com/v2/prices/:currency_pair/buy"
+    var apiURL = "https://newsdata.io/api/1/news?apikey=pub_42803e674039751e4b30dc24c745534322c8&country=gb&q=cryptocurrency"
     fetch(apiURL)
         .then(function (response) {
         return response.json();}
@@ -21,6 +23,8 @@ var getCryptoCurrency=function(userInput){
         console.log(data)
 })
 }
+
+
 
 //Event Listener for form
 coinForm.addEventListener("submit", function (event) {
