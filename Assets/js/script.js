@@ -7,5 +7,29 @@ var currentDate =
   moment().format("dddd") + " " + moment().format("Do MMM YYYY");
 
 var momentNow = moment();
-  $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
+$("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
+var coinForm = document.getElementById("coin-form");
+//api news
+// my api key for news pub_42803e674039751e4b30dc24c745534322c8
+
+var getCryptoCurrency=function(userInput){
+    var apiURL = "https://newsdata.io/api/1/news?apikey=pub_42803e674039751e4b30dc24c745534322c8&country=gb&q=cryptocurrency"
+    fetch(apiURL)
+        .then(function (response) {
+        return response.json();}
+        )
+        .then(function (data) {
+        console.log(data)
+})
+}
+
+
+
+//Event Listener for form
+coinForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var userInput = document.getElementById("textarea1").value.trim();
+  console.log(userInput);
+  getCryptoCurrency(userInput);
+})
