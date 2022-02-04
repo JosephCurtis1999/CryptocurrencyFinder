@@ -61,7 +61,7 @@ h5{
 }
 
 .custom-news-images{
-  height:370px;
+  height:470px;
 }
 
 .custom-news-p{
@@ -69,11 +69,18 @@ h5{
   text-align: center;
 }
 
+@media screen and (max-width: 1300px) {
+  .custom-news-images{
+    height:340px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .custom-btn {
     margin-top:0;
     text-align: center;
-  }}
+  }
+}
 
 @media screen and (max-width: 768px) {
   .custom-search-div {
