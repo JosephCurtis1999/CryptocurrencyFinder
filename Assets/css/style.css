@@ -69,6 +69,12 @@ h5{
   text-align: center;
 }
 
+footer{
+ text-align: center;
+ font-style: italic;
+ font-weight: 5px;
+}
+
 @media screen and (max-width: 1300px) {
   .custom-news-images{
     height:340px;
