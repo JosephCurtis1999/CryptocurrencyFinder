@@ -30,7 +30,7 @@ var getCryptoCurrencyData = function (userInput) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       if (data.totalResults == 0) {
         modal.style.display = "block";
         return;
@@ -39,7 +39,7 @@ var getCryptoCurrencyData = function (userInput) {
       for (var i = 0; i < 4; i++) {
         var titles = "";
         var titles = data.results[i].title;
-        console.log(titles);
+        // console.log(titles);
         var titleEl = document.getElementById("title-" + i);
         titleEl.textContent = data.results[i].title;
         // console.log(titleEl)
@@ -62,17 +62,45 @@ var getCryptoCurrencyData = function (userInput) {
       }
     });
 };
-var getCryptoPrice = function (userInput) {
-  var apiURLPrimary =
-    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR";
-  fetch(apiURL)
+var getCryptoSymbol = function (userInput) {
+  var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+    // "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR";
+  fetch(apiURLPrimary)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+      // console.log(data.Data[0].CoinInfo.FullName)
+      for(var i=0;i<10;i++){
+        if(data.Data[i].CoinInfo.FullName == userInput){
+          // console.log(data.Data[0].CoinInfo.Name)
+          var symbol=data.Data[i].CoinInfo.Name;
+          console.log(symbol)
+          getCryptoPrice(symbol);
+          return;
+        }
+      }
     });
 };
+
+// var getCryptoPrice = function(symbol){
+//   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+//   fetch(apiURLPrimaryData)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       // for(i=0;i<3;i++){
+//       //   console.log("hello")
+//       // }
+//       // var imageURL = document.getElementById("display-image-crypto");
+//       // imageURL.setAttribute("src",data.Display.BTC.EUR.IMAGEURL)
+
+//     })
+// }
+
 
 var saveSearch = function (userInput) {
   var historyEl = document.getElementById("history");
@@ -114,5 +142,5 @@ coinForm.addEventListener("submit", function (event) {
   var userInput = document.getElementById("textarea1").value.trim();
   console.log(userInput);
   getCryptoCurrency(userInput);
-  getCryptoPrice(userInput);
+  getCryptoSymbol(userInput);
 });
