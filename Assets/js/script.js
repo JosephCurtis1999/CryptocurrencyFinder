@@ -1,6 +1,7 @@
 // variables for News Data API key
-var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
+var apiKeyND = "pub_421842bf54a3bf0ae27130d690ea3e6b77ef";
 
+// nadine api pub_42803e674039751e4b30dc24c745534322c8
 var displayCurrency = document.getElementById("display-currency");
 var modal = document.getElementById("modal1");
 // Shows date at the top of the page
@@ -72,7 +73,7 @@ var getCryptoCurrencyData = function (userInput) {
         searchIndex = i;
       }
     });
-    return;
+    getCryptoSymbol(userInput)
 };
 
 var getCryptoSymbol = function (userInput) {
@@ -88,14 +89,14 @@ var getCryptoSymbol = function (userInput) {
         var symbol=data.Data[i].CoinInfo.Name;
         if(coinFullName.toUpperCase() == userInput.toUpperCase()){
           console.log(symbol)
-          getCryptoPrice(symbol);
+          getCryptoPrice(userInput,symbol);
           return;
         }
       }
     });
 };
 
-var getCryptoPrice = function(symbol){
+var getCryptoPrice = function(userInput,symbol){
   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
   fetch(apiURLPrimaryData)
     .then(function (response) {
@@ -106,6 +107,7 @@ var getCryptoPrice = function(symbol){
      displayInEur(data,symbol)
      displayInGBP(data,symbol)
      displayInUSD(data,symbol)
+     
     })
 }
 var displayInEur=function(data,symbol){
@@ -182,6 +184,7 @@ var saveSearch = function (userInput) {
     buttonEl.addEventListener("click", function () {
       userInput = updatedCurrencies[i].currency;
       getCryptoCurrencyData(userInput);
+      // getCryptoSymbol(userInput);
       return;
     });
     return;
