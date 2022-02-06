@@ -1,4 +1,4 @@
-// variables for API keys
+// variables for News Data API key
 var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
 
 var displayCurrency = document.getElementById("display-currency");
@@ -33,26 +33,37 @@ var getCryptoCurrencyData = function (userInput) {
       // console.log(data);
       if (data.totalResults == 0) {
         modal.style.display = "block";
+        var okButton = document.getElementById("ok-button")
+        okButton.addEventListener("click",function(event){
+          modal.style.display="none"
+        })
         return;
       }
       displayCurrency.textContent = userInput.toUpperCase();
       for (var i = 0; i < 4; i++) {
-        var titles = "";
-        var titles = data.results[i].title;
+        // var titles = "";
+        // var titles = data.results[i].title;
         // console.log(titles);
         var titleEl = document.getElementById("title-" + i);
         titleEl.textContent = data.results[i].title;
         // console.log(titleEl)
 
         var sourceEl = document.getElementById("source-" + i);
-        sourceEl.textContent =
-          data.results[i].creator[0] +
-          " | " +
-          data.results[i].pubDate.split(" ")[0];
+        if(data.results[i].creator==null){
+          sourceEl.textContent= " "
+        }
+        else{
+          sourceEl.textContent =data.results[i].creator+" | " +data.results[i].pubDate.split(" ")[0];
+        }
         // console.log(sourceEl)
 
         var contentEl = document.getElementById("content-" + i);
-        contentEl.textContent = data.results[i].content.slice(0, 110) + "...";
+        if(data.results[i].content==null){
+          contentEl.textContent= " "
+        }
+        else{
+          contentEl.textContent = data.results[i].content.slice(0, 110) + "...";
+        }
         // console.log(contentEl)
 
         var readMoreEl = document.getElementById("read-more-" + i);
@@ -61,7 +72,9 @@ var getCryptoCurrencyData = function (userInput) {
         searchIndex = i;
       }
     });
+    return;
 };
+
 var getCryptoSymbol = function (userInput) {
   var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
     // "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR";
@@ -71,13 +84,18 @@ var getCryptoSymbol = function (userInput) {
     })
     .then(function (data) {
       console.log(data);
-      // console.log(data.Data[0].CoinInfo.FullName)
       for(var i=0;i<10;i++){
-        if(data.Data[i].CoinInfo.FullName == userInput){
-          // console.log(data.Data[0].CoinInfo.Name)
-          var symbol=data.Data[i].CoinInfo.Name;
+        var coinFullName= data.Data[i].CoinInfo.FullName
+        var symbol=data.Data[i].CoinInfo.Name;
+        console.log(coinFullName)
+        console.log(userInput)
+        // PROBLEM HERE
+        // we're trying to compare user input (bitcoin for example) to all cryptocurrencies available in the api above
+        // then we're trying to return the symbol for this crypto (bitcoin will return BTC) 
+        // this symbol will be used in the API below
+        if(coinFullName == userInput){
           console.log(symbol)
-          getCryptoPrice(symbol);
+        //   // getCryptoPrice(symbol);
           return;
         }
       }
@@ -140,7 +158,9 @@ var saveSearch = function (userInput) {
 coinForm.addEventListener("submit", function (event) {
   event.preventDefault();
   var userInput = document.getElementById("textarea1").value.trim();
-  console.log(userInput);
+  // console.log(userInput);
   getCryptoCurrency(userInput);
   getCryptoSymbol(userInput);
 });
+
+
