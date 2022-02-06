@@ -77,7 +77,6 @@ var getCryptoCurrencyData = function (userInput) {
 
 var getCryptoSymbol = function (userInput) {
   var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
-    // "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR";
   fetch(apiURLPrimary)
     .then(function (response) {
       return response.json();
@@ -87,37 +86,27 @@ var getCryptoSymbol = function (userInput) {
       for(var i=0;i<10;i++){
         var coinFullName= data.Data[i].CoinInfo.FullName
         var symbol=data.Data[i].CoinInfo.Name;
-        console.log(coinFullName)
-        console.log(userInput)
-        // PROBLEM HERE
-        // we're trying to compare user input (bitcoin for example) to all cryptocurrencies available in the api above
-        // then we're trying to return the symbol for this crypto (bitcoin will return BTC) 
-        // this symbol will be used in the API below
-        if(coinFullName == userInput){
+        if(coinFullName.toUpperCase() == userInput.toUpperCase()){
           console.log(symbol)
-        //   // getCryptoPrice(symbol);
+          getCryptoPrice(symbol);
           return;
         }
       }
     });
 };
 
-// var getCryptoPrice = function(symbol){
-//   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
-//   fetch(apiURLPrimaryData)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//       // for(i=0;i<3;i++){
-//       //   console.log("hello")
-//       // }
-//       // var imageURL = document.getElementById("display-image-crypto");
-//       // imageURL.setAttribute("src",data.Display.BTC.EUR.IMAGEURL)
+var getCryptoPrice = function(symbol){
+  var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+  fetch(apiURLPrimaryData)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      // here
 
-//     })
-// }
+    })
+}
 
 
 var saveSearch = function (userInput) {
