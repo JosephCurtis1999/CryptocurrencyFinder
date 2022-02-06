@@ -102,10 +102,55 @@ var getCryptoPrice = function(symbol){
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      // here
-
+      console.log(data)
+     displayInEur(data,symbol)
+     displayInGBP(data,symbol)
+     displayInUSD(data,symbol)
     })
+}
+var displayInEur=function(data,symbol){
+  var priceEl= document.getElementById("price-0-0")
+  priceEl.textContent=data.RAW[symbol].EUR.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-0-1")
+  changeEl.textContent=data.RAW[symbol].EUR.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-0-2")
+  volumeEl.textContent=data.RAW[symbol].EUR.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-0-3")
+  openEl.textContent=data.RAW[symbol].EUR.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-0-4")
+  marketEl.textContent=data.RAW[symbol].EUR.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-0-5")
+  supplyEl.textContent=data.RAW[symbol].EUR.SUPPLY.toFixed(2)
+}
+
+var displayInGBP=function(data,symbol){
+  var priceEl= document.getElementById("price-1-0")
+  priceEl.textContent=data.RAW[symbol].GBP.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-1-1")
+  changeEl.textContent=data.RAW[symbol].GBP.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-1-2")
+  volumeEl.textContent=data.RAW[symbol].GBP.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-1-3")
+  openEl.textContent=data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-1-4")
+  marketEl.textContent=data.RAW[symbol].GBP.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-1-5")
+  supplyEl.textContent=data.RAW[symbol].GBP.SUPPLY.toFixed(2)
+}
+
+var displayInUSD=function(data,symbol){
+  var priceEl= document.getElementById("price-2-0")
+  priceEl.textContent=data.RAW[symbol].USD.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-2-1")
+  changeEl.textContent=data.RAW[symbol].USD.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-2-2")
+  volumeEl.textContent=data.RAW[symbol].USD.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-2-3")
+  openEl.textContent=data.RAW[symbol].USD.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-2-4")
+  marketEl.textContent=data.RAW[symbol].USD.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-2-5")
+  supplyEl.textContent=data.RAW[symbol].USD.SUPPLY.toFixed(2)
 }
 
 
