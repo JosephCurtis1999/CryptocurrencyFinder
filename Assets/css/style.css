@@ -103,6 +103,19 @@ td{
 .modal-content h4{
   color:#ff8a65
 }
+.slider{
+  margin-top:7%;
+}
+.caption{
+  padding-left:50%; 
+}
+
+.caption h3{
+  font-variant: small-caps;
+}
+.custom-caption{
+  padding-left: 0;
+}
 
 @media screen and (max-width: 1300px) {
   .custom-news-images{
@@ -132,6 +145,27 @@ td{
   .custom-title{
    text-align: center;
   }
+  .slider{
+    margin-top:11%;
+  }
+  .caption{
+    padding-left:0; 
+  }
+  .caption h3{
+    font-size:20px;
+    padding:10px;
+    background-color: #00004d;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .caption h5{
+    font-size:15px;
+    background-color: #3d87b8;
+    text-align: center;
+    padding:10px;
+    border-radius: 10px;
+  }
+  
 }
 
 .custom-action {

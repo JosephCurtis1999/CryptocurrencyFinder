@@ -55,7 +55,7 @@ var getCryptoCurrencyData = function (userInput) {
           contentEl.textContent= " "
         }
         else{
-          contentEl.textContent = data.results[i].content.slice(0, 220) + "...";
+          contentEl.textContent = data.results[i].content.slice(0, 190) + "...";
         }
         // console.log(contentEl)
 
@@ -216,7 +216,16 @@ coinForm.addEventListener("submit", function (event) {
     return;
   }
   else{
-  getCryptoCurrency(userInput);
-  getCryptoSymbol(userInput);}
+    var sliderEl = document.getElementById("slider-div")
+    sliderEl.style.display="none";
+    var contentdivEl=document.getElementById("content-div")
+    contentdivEl.style.display="block";
+    getCryptoCurrency(userInput);
+    getCryptoSymbol(userInput);}
+});
+
+
+$(document).ready(function(){
+  $('.slider').slider();
 });
 
