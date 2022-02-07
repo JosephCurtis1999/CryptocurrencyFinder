@@ -32,15 +32,7 @@ var getCryptoCurrencyData = function (userInput) {
     })
     .then(function (data) {
       console.log(data);
-      if (data.totalResults == 0) {
-        modal.style.display = "block";
-        var okButton = document.getElementById("ok-button")
-        okButton.addEventListener("click",function(event){
-          modal.style.display="none"
-          return;
-        })
-        return;
-      }
+
       displayCurrency.textContent = userInput.toUpperCase() + " / ";
       
       for (var i = 0; i < 4; i++) {
@@ -86,18 +78,18 @@ var getCryptoCurrencyData = function (userInput) {
 };
 
 var getCryptoSymbol = function (userInput) {
-  var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+  var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD";
   fetch(apiURLPrimary)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
-      for(var i=0;i<10;i++){
+      for(var i=0;i<100;i++){
         var coinFullName= data.Data[i].CoinInfo.FullName
         var symbol=data.Data[i].CoinInfo.Name;
         if(coinFullName.toUpperCase() == userInput.toUpperCase()){
-          console.log(symbol)
+          // console.log(symbol)
           var chartEl = document.getElementById("chart")
           chartEl.setAttribute("href","https://www.cryptocompare.com"+data.Data[i].CoinInfo.Url)
           var symbol3El = document.getElementById("display-3symbol")
@@ -110,6 +102,7 @@ var getCryptoSymbol = function (userInput) {
           getCryptoPrice(userInput,symbol);
           return;
         }
+
       }
     });
 };
@@ -125,7 +118,6 @@ var getCryptoPrice = function(userInput,symbol){
      displayInEur(data,symbol)
      displayInGBP(data,symbol)
      displayInUSD(data,symbol)
-     
     })
 }
 var displayInEur=function(data,symbol){
@@ -214,8 +206,17 @@ coinForm.addEventListener("submit", function (event) {
   event.preventDefault();
   var userInput = document.getElementById("textarea1").value.trim();
   // console.log(userInput);
+  if (userInput == "") {
+    modal.style.display = "block";
+    var okButton = document.getElementById("ok-button")
+    okButton.addEventListener("click",function(event){
+      modal.style.display="none"
+      return;
+    })
+    return;
+  }
+  else{
   getCryptoCurrency(userInput);
-  getCryptoSymbol(userInput);
+  getCryptoSymbol(userInput);}
 });
-
 

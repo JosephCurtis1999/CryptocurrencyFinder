@@ -97,6 +97,13 @@ td{
   width:50px;
   height:40px;
 }
+.modal-close{
+  background-color:#aed581 ;
+}
+.modal-content h4{
+  color:#ff8a65
+}
+
 @media screen and (max-width: 1300px) {
   .custom-news-images{
     height:340px;
@@ -129,7 +136,6 @@ td{
 
 .custom-action {
   min-height: 120px;
-  
 }
 
 .custom-content {
