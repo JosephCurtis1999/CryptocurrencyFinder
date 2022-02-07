@@ -14,7 +14,19 @@ nav {
 .custom-date {
   margin-right: 60px;
 }
+.slider{
+  margin-top:7%;
+}
+.caption{
+  padding-left:50%; 
+}
 
+.caption h3{
+  font-variant: small-caps;
+}
+.custom-caption{
+  padding-left: 0;
+}
 .custom-search-div {
   margin-top: 3%;
 }
@@ -70,32 +82,29 @@ h5{
   font-weight:bold;
   text-align: center;
 }
-
-footer{
- text-align: center;
- font-style: italic;
- font-weight: 5px;
+.custom-action {
+  min-height: 120px;
 }
 
+.custom-content {
+  min-height: 120px;
+}
 th{
   text-align: center;
 }
-
 td{
   text-align: center;
 }
-
-.custom-chart-link{
-  text-align: center;
-  font-size: 15px;
-  padding-bottom: 2%;
-}
-
 .custom-display-icon{
   padding:0;
   padding-right:5px;
   width:50px;
   height:40px;
+}
+.custom-chart-link{
+  text-align: center;
+  font-size: 15px;
+  padding-bottom: 2%;
 }
 .modal-close{
   background-color:#aed581 ;
@@ -103,19 +112,14 @@ td{
 .modal-content h4{
   color:#ff8a65
 }
-.slider{
-  margin-top:7%;
-}
-.caption{
-  padding-left:50%; 
-}
-
-.caption h3{
-  font-variant: small-caps;
-}
-.custom-caption{
-  padding-left: 0;
-}
+footer{
+  text-align: center;
+  font-style: italic;
+  font-weight: 5px;
+  position:absolute;
+  bottom:0;
+  width:100%;
+ }
 
 @media screen and (max-width: 1300px) {
   .custom-news-images{
@@ -168,10 +172,3 @@ td{
   
 }
 
-.custom-action {
-  min-height: 120px;
-}
-
-.custom-content {
-  min-height: 120px;
-}
