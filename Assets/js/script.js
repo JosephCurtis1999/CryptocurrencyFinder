@@ -24,27 +24,27 @@ var getCryptoCurrencyData = function (userInput) {
   var apiURL =
     "https://newsdata.io/api/1/news?apikey=" +
     apiKeyND +
-    "&country=gb&q=" +
+    "&language=en&category=business,technology,politics,top,world&q=" +
     userInput;
   fetch(apiURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
+      console.log(data);
       if (data.totalResults == 0) {
         modal.style.display = "block";
         var okButton = document.getElementById("ok-button")
         okButton.addEventListener("click",function(event){
           modal.style.display="none"
+          return;
         })
         return;
       }
-      displayCurrency.textContent = userInput.toUpperCase();
+      displayCurrency.textContent = userInput.toUpperCase() + " / ";
+      
       for (var i = 0; i < 4; i++) {
-        // var titles = "";
-        // var titles = data.results[i].title;
-        // console.log(titles);
+
         var titleEl = document.getElementById("title-" + i);
         titleEl.textContent = data.results[i].title;
         // console.log(titleEl)
@@ -63,13 +63,22 @@ var getCryptoCurrencyData = function (userInput) {
           contentEl.textContent= " "
         }
         else{
-          contentEl.textContent = data.results[i].content.slice(0, 110) + "...";
+          contentEl.textContent = data.results[i].content.slice(0, 220) + "...";
         }
         // console.log(contentEl)
 
         var readMoreEl = document.getElementById("read-more-" + i);
         readMoreEl.href = data.results[i].link;
         // console.log(readMoreEl)
+
+        var imageEl = document.getElementById("image-news-"+i)
+        if(data.results[i].image_url==null){
+          imageEl.setAttribute("src","./Assets/Images/img"+i+".jpg")
+        }
+        else{
+          imageEl.setAttribute("src",data.results[i].image_url)
+        }
+
         searchIndex = i;
       }
     });
@@ -89,6 +98,15 @@ var getCryptoSymbol = function (userInput) {
         var symbol=data.Data[i].CoinInfo.Name;
         if(coinFullName.toUpperCase() == userInput.toUpperCase()){
           console.log(symbol)
+          var chartEl = document.getElementById("chart")
+          chartEl.setAttribute("href","https://www.cryptocompare.com"+data.Data[i].CoinInfo.Url)
+          var symbol3El = document.getElementById("display-3symbol")
+          symbol3El.textContent= data.Data[i].CoinInfo.Name+ " - ";
+          var symbolEl = document.getElementById("display-symbol")
+          
+          var iconEl = document.getElementById("display-icon")
+          iconEl.setAttribute("src","https://www.cryptocompare.com"+ data.Data[i].CoinInfo.ImageUrl )
+          symbolEl.textContent= data.Data[i].DISPLAY.USD.FROMSYMBOL;
           getCryptoPrice(userInput,symbol);
           return;
         }

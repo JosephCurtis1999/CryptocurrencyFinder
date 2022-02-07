@@ -55,9 +55,10 @@ h5{
 }
 .custom-title{
   font-size:30px;
-  margin-left:2%;
-  margin-bottom:1px;
+  margin:0px;
+  padding-top:2%;
   color:#1a237e;
+  text-align: center;
 }
 
 .custom-news-images{
@@ -82,6 +83,19 @@ th{
 
 td{
   text-align: center;
+}
+
+.custom-chart-link{
+  text-align: center;
+  font-size: 15px;
+  padding-bottom: 2%;
+}
+
+.custom-display-icon{
+  padding:0;
+  padding-right:5px;
+  width:50px;
+  height:40px;
 }
 @media screen and (max-width: 1300px) {
   .custom-news-images{
