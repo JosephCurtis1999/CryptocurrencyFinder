@@ -35,8 +35,8 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                       <li class="custom-date" id="currentDay"><span></span></li>
-                      <li><a href="sass.html">Prices&More</a></li>
-                      <li><a href="badges.html">News</a></li>
+                      <li><a href="#price">Prices&More</a></li>
+                      <li><a href="#news">News</a></li>
                     </ul>
                   </div>
             </nav>
@@ -99,10 +99,10 @@
             8-columns-wide on medium screens,
             12-columns-wide on small screens  -->
             <div class="row"> 
-                <div class="col s12"> 
+                <div class="col s12"  id="price"> 
                   <div class="card">
                     <div class="card-image">
-                      <img src="./Assets/Images/BTC_3M_graph_coinmarketcap.jpg" alt="bitcoin-chart" id="display-image-crypto">
+                      <!-- <img src="https://www.cryptocompare.com/media/37746251/btc.png" alt="bitcoin-chart" id="display-image-crypto"> -->
                     </div>
                     <p class="custom-title"><span id="display-currency"></span></p>
                     <div class="card-content">
@@ -118,45 +118,46 @@
                               </tr>
                             </thead>
                     
-                            <tbody>
-                              <tr>
-                                <td>PRICE</td>
-                                <td id="price-euro-0">Eclair</td>
-                                <td id="price-pound-1">Eclair</td>
-                                <td id="price-dollar-2">Eclair</td>
-                              </tr>
-                              <tr>
-                                <td>24HR%CHANGE</td>
-                                <td id="change-euro-0">Eclair</td>
-                                <td id="change-pound-1">Eclair</td>
-                                <td id="change-dollar-2">Eclair</td>
-                              </tr>
-                              <tr>
-                                <td>24HRVOLUME</td>
-                                <td id="open-euro-0">Eclair</td>
-                                <td id="open-pound-1">Eclair</td>
-                                <td id="open-dollar-2">Eclair</td>
-                              </tr>
-                              <tr>
-                                <td>OPENDAY</td>
-                                <td id="cap-euro-0">Eclair</td>
-                                <td id="cap-pound-1">Eclair</td>
-                                <td id="cap-dollar-2">Eclair</td>
-                              </tr>
-                              <tr>
-                                <td>MARKETCAP</td>
-                                <td id="supply-euro-0">Eclair</td>
-                                <td id="supply-pound-1">Eclair</td>
-                                <td id="supply-dollar-2">Eclair</td>
-                              </tr>
-                             
-                              <tr>
-                                <td>SUPPLY</td>
-                                  <td id="volume-euro-0">Eclair</td>
-                                <td id="volume-pound-1">Eclair</td>
-                                <td id="volume-dollar-2">Eclair</td>
-                              </tr>
-                            </tbody>
+ <tbody>
+  <tr>
+    <td>PRICE</td>
+    <td id="price-0-0"></td>
+    <td id="price-1-0"></td>
+    <td id="price-2-0"></td>
+  </tr>
+  <tr>
+    <td>24HR%CHANGE</td>
+    <td id="change-0-1"></td>
+    <td id="change-1-1"></td>
+    <td id="change-2-1"></td>
+  </tr>
+  <tr>
+    <td>24HRVOLUME</td>
+    <td id="volume-0-2"></td>
+    <td id="volume-1-2"></td>
+    <td id="volume-2-2"></td>
+  </tr>
+  <tr>
+    <td>OPENDAY</td>
+    <td id="open-0-3"></td>
+    <td id="open-1-3"></td>
+    <td id="open-2-3"></td>
+  
+  </tr>
+  <tr>
+    <td>MARKETCAP</td>
+    <td id="cap-0-4"></td>
+    <td id="cap-1-4"></td>
+    <td id="cap-2-4"></td>
+  </tr>
+ 
+  <tr>
+    <td>SUPPLY</td>
+    <td id="supply-0-5"></td>
+    <td id="supply-1-5"></td>
+    <td id="supply-2-5"></td>
+  </tr>
+</tbody>
                   
                                 </table>
                       
@@ -164,7 +165,7 @@
              
                 </div>
 
-                <div class="row">
+                <div class="row" id="news">
                     <div class="col s12 l6">
                       <div class="card">
                         <div class="card-image">
@@ -172,40 +173,40 @@
                           <span class="card-title " id="source-0">source</span>
                           
                         </div>
-                        <div class="card-content">
+                        <div class="card-content custom-content">
                             <p><span id="content-0"></span><a id="read-more-0"  target="_blank">Read More</a></p>
                          
                         </div>
-                        <div class="card-action">
+                        <div class="card-action custom-action">
                             <p class="custom-news-p"><span id="title-0">CryptoGuide News</span></p>
                         </div>
                       </div>
                     </div>
 
                     <div class="col s12 l6 custom-height">
-                        <div class="card">
+                        <div class="card custom-card">
                           <div class="card-image">
                             <img src="./Assets/Images/img2.jpg" class="custom-news-images">
                             <span class="card-title custom-card-title" id="source-1">source</span>
                           </div>
-                          <div class="card-content">
+                          <div class="card-content custom-content">
                             <p><span id="content-1"></span><a id="read-more-1" target="_blank">Read More</a></p>
                           </div>
-                          <div class="card-action">
+                          <div class="card-action custom-action">
                             <p class="custom-news-p"><span id="title-1">CryptoGuide News</span></p>
                           </div>
                         </div>
                       </div>
                       <div class="col s12 l6">
-                        <div class="card">
+                        <div class="card custom-card">
                           <div class="card-image">
                             <img src="./Assets/Images/img3.jpg" class="custom-news-images">
                             <span class="card-title custom-card-title" id="source-2">source</span>
                           </div>
-                          <div class="card-content">
+                          <div class="card-content custom-content">
                             <p><span id="content-2"></span><a id="read-more-2"  target="_blank">Read More</a></p>
                           </div>
-                          <div class="card-action">
+                          <div class="card-action custom-action">
                             <p class="custom-news-p"><span id="title-2">CryptoGuide News</span></p>
                           </div>
                         </div>
@@ -217,10 +218,10 @@
                             <img src="./Assets/Images/img4.jpg" class="custom-news-images">
                             <span class="card-title custom-card-title" id="source-3">source</span>
                           </div>
-                          <div class="card-content">
+                          <div class="card-content custom-content">
                             <p><span id="content-3"></span><a id="read-more-3" target="_blank">Read More</a></p>
                           </div>
-                          <div class="card-action">
+                          <div class="card-action custom-action">
                             <p class="custom-news-p"><span id="title-3">CryptoGuide News</span></p>
                           </div>
                         </div>

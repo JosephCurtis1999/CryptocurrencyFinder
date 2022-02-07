@@ -1,6 +1,7 @@
 // variables for News Data API key
-var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
+var apiKeyND = "pub_421842bf54a3bf0ae27130d690ea3e6b77ef";
 
+// nadine api pub_42803e674039751e4b30dc24c745534322c8
 var displayCurrency = document.getElementById("display-currency");
 var modal = document.getElementById("modal1");
 // Shows date at the top of the page
@@ -72,7 +73,7 @@ var getCryptoCurrencyData = function (userInput) {
         searchIndex = i;
       }
     });
-    return;
+    getCryptoSymbol(userInput)
 };
 
 var getCryptoSymbol = function (userInput) {
@@ -88,24 +89,70 @@ var getCryptoSymbol = function (userInput) {
         var symbol=data.Data[i].CoinInfo.Name;
         if(coinFullName.toUpperCase() == userInput.toUpperCase()){
           console.log(symbol)
-          getCryptoPrice(symbol);
+          getCryptoPrice(userInput,symbol);
           return;
         }
       }
     });
 };
 
-var getCryptoPrice = function(symbol){
+var getCryptoPrice = function(userInput,symbol){
   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
   fetch(apiURLPrimaryData)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      // here
-
+      console.log(data)
+     displayInEur(data,symbol)
+     displayInGBP(data,symbol)
+     displayInUSD(data,symbol)
+     
     })
+}
+var displayInEur=function(data,symbol){
+  var priceEl= document.getElementById("price-0-0")
+  priceEl.textContent=data.RAW[symbol].EUR.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-0-1")
+  changeEl.textContent=data.RAW[symbol].EUR.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-0-2")
+  volumeEl.textContent=data.RAW[symbol].EUR.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-0-3")
+  openEl.textContent=data.RAW[symbol].EUR.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-0-4")
+  marketEl.textContent=data.RAW[symbol].EUR.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-0-5")
+  supplyEl.textContent=data.RAW[symbol].EUR.SUPPLY.toFixed(2)
+}
+
+var displayInGBP=function(data,symbol){
+  var priceEl= document.getElementById("price-1-0")
+  priceEl.textContent=data.RAW[symbol].GBP.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-1-1")
+  changeEl.textContent=data.RAW[symbol].GBP.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-1-2")
+  volumeEl.textContent=data.RAW[symbol].GBP.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-1-3")
+  openEl.textContent=data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-1-4")
+  marketEl.textContent=data.RAW[symbol].GBP.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-1-5")
+  supplyEl.textContent=data.RAW[symbol].GBP.SUPPLY.toFixed(2)
+}
+
+var displayInUSD=function(data,symbol){
+  var priceEl= document.getElementById("price-2-0")
+  priceEl.textContent=data.RAW[symbol].USD.PRICE.toFixed(2)
+  var changeEl =document.getElementById("change-2-1")
+  changeEl.textContent=data.RAW[symbol].USD.CHANGE24HOUR.toFixed(2)
+  var volumeEl =document.getElementById("volume-2-2")
+  volumeEl.textContent=data.RAW[symbol].USD.VOLUME24HOUR.toFixed(2)
+  var openEl =document.getElementById("open-2-3")
+  openEl.textContent=data.RAW[symbol].USD.OPENDAY.toFixed(2)
+  var marketEl =document.getElementById("cap-2-4")
+  marketEl.textContent=data.RAW[symbol].USD.MKTCAP.toFixed(2)
+  var supplyEl =document.getElementById("supply-2-5")
+  supplyEl.textContent=data.RAW[symbol].USD.SUPPLY.toFixed(2)
 }
 
 
@@ -137,6 +184,7 @@ var saveSearch = function (userInput) {
     buttonEl.addEventListener("click", function () {
       userInput = updatedCurrencies[i].currency;
       getCryptoCurrencyData(userInput);
+      // getCryptoSymbol(userInput);
       return;
     });
     return;

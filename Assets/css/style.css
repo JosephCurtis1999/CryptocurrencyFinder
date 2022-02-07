@@ -76,7 +76,13 @@ footer{
  font-weight: 5px;
 }
 
+th{
+  text-align: center;
+}
 
+td{
+  text-align: center;
+}
 @media screen and (max-width: 1300px) {
   .custom-news-images{
     height:340px;
@@ -88,11 +94,15 @@ footer{
     margin-top:0;
     text-align: center;
   }
+  table{
+    font-size:10px;
+  }
+  
 }
 
 @media screen and (max-width: 768px) {
   .custom-search-div {
-    margin-top: 6%;
+    margin-top: 13%;
   }
   .custom-btn {
     margin-top:0;
@@ -101,4 +111,13 @@ footer{
   .custom-title{
    text-align: center;
   }
+}
+
+.custom-action {
+  min-height: 120px;
+  
+}
+
+.custom-content {
+  min-height: 120px;
 }
