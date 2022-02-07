@@ -112,3 +112,12 @@ td{
    text-align: center;
   }
 }
+
+.custom-action {
+  min-height: 120px;
+  
+}
+
+.custom-content {
+  min-height: 120px;
+}
