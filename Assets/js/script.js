@@ -1,6 +1,6 @@
 // variables for News Data API key
-var apiKeyND = "pub_421842bf54a3bf0ae27130d690ea3e6b77ef";
-
+var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
+//joe api pub_421842bf54a3bf0ae27130d690ea3e6b77ef
 // nadine api pub_42803e674039751e4b30dc24c745534322c8
 var displayCurrency = document.getElementById("display-currency");
 var modal = document.getElementById("modal1");
@@ -221,7 +221,7 @@ coinForm.addEventListener("submit", function (event) {
     var contentdivEl=document.getElementById("content-div")
     contentdivEl.style.display="block";
     var footerEl=document.getElementById("footerEl")
-    footerEl.setAttribute("style","position:relative;")
+    footerEl.style.display="none"
     getCryptoCurrency(userInput);
     getCryptoSymbol(userInput);}
 });
