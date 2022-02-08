@@ -20,7 +20,7 @@
     crossorigin="anonymous"
   />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
+  </head>
 
   <body>
       <!-- header -->
@@ -43,6 +43,42 @@
         </div>
     </header>
   
+    <div class="row s12 m4 l2">
+    <div class="slider " id="slider-div">
+      <ul class="slides">
+        <li>
+          <img src="./Assets/Images/slide1.png">
+          <div class="caption right-align">
+            <h3>CryptoGuide</h3>
+            <h5 class="light grey-text text-lighten-3">Your guide to all cryptocurrencies</h5>
+          </div>
+        </li>
+        <li>
+          <img src="./Assets/Images/slide2.png"> 
+          <div class="caption left-align">
+            <h3>Prices & More</h3>
+            <h5 class="light grey-text text-lighten-3">Cryptocurrency Prices, Charts, Daily Trends, Market Cap</h5>
+          </div>
+        </li>
+        <li>
+          <img src="./Assets/Images/slide3.png">
+          <div class="caption right-align">
+            <h3>Daily News</h3>
+            <h5 class="light grey-text text-lighten-3">From magazines all over the world</h5>
+          </div>
+        </li>
+        <li>
+          <img src="./Assets/Images/slide4.png"> 
+          <div class="caption center-align custom-caption">
+            <h3>Get Started Now</h3>
+            <h5 class="light grey-text text-lighten-3">Search below for any cryptocurrency</h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
 
 <!-- form and button -->
     <div class="row ">
@@ -62,15 +98,15 @@
                <button class="btn-floating waves-effect waves-light indigo darken-4 pulse" type="submit" id="search-btn"> 
                 <i class="fas fa-search"> </i>
                </button> 
-               
-        </div>
+            </div>
         </div>
     </form>
     </div>
 
 
         <div class="row">
-<!-- search history -->
+          <div id="content-div" style="display:none;">
+        <!-- search history -->
         <div class="col s12 m4 l2">
         <!-- Note that "m4 l3" was added -->
           <!-- Grey navigation panel
@@ -80,17 +116,12 @@
             12-columns-wide on small screens  -->
             <h5 class="center-align">Search History</h5>
             <ul class="collection with-header custom-search-history" id="history">
-                
-                <!-- <li class="collection-item hoverable"><button class="custom-btn-history">Bitcoin</button></li>
-                <li class="collection-item hoverable"><button class="custom-btn-history">Litecoin</button></li>
-                <li class="collection-item hoverable"><button class="custom-btn-history">Ethereum</button></li>
-                <li class="collection-item hoverable"><button class="custom-btn-history">Ethereum Classic</button></li>
-                <li class="collection-item hoverable"><button class="custom-btn-history">Zcash </button></li> -->
-              </ul>
+                <!-- <li class="collection-item hoverable"><button class="custom-btn-history">Bitcoin</button></li> -->
+            </ul>
         </div>
        
 
-<!-- Data and image -->
+        <!-- Data and image -->
         <div class="col s12 m8 l10"> 
         <!-- Note that "m8 l9" was added -->
           <!-- Teal page content
@@ -100,82 +131,83 @@
             12-columns-wide on small screens  -->
             <div class="row"> 
                 <div class="col s12"  id="price"> 
+
                   <div class="card">
                     <div class="card-image">
                       <!-- <img src="https://www.cryptocompare.com/media/37746251/btc.png" alt="bitcoin-chart" id="display-image-crypto"> -->
                     </div>
-                    <p class="custom-title"><span id="display-currency"></span></p>
+                    <p class="custom-title"><span id="display-currency"></span><span id="display-3symbol"></span><span id="display-symbol"></span</p>
+
                     <div class="card-content">
                         
                         <table class="highlight">
                           
                             <thead>
                               <tr>
-                                  <th></th>
+                                  <th><img id="display-icon" class="custom-display-icon"></th>
                                   <th>€</th>
                                   <th>£</th>
                                   <th>$</th>
                               </tr>
                             </thead>
                     
- <tbody>
-  <tr>
-    <td>PRICE</td>
-    <td id="price-0-0"></td>
-    <td id="price-1-0"></td>
-    <td id="price-2-0"></td>
-  </tr>
-  <tr>
-    <td>24HR%CHANGE</td>
-    <td id="change-0-1"></td>
-    <td id="change-1-1"></td>
-    <td id="change-2-1"></td>
-  </tr>
-  <tr>
-    <td>24HRVOLUME</td>
-    <td id="volume-0-2"></td>
-    <td id="volume-1-2"></td>
-    <td id="volume-2-2"></td>
-  </tr>
-  <tr>
-    <td>OPENDAY</td>
-    <td id="open-0-3"></td>
-    <td id="open-1-3"></td>
-    <td id="open-2-3"></td>
-  
-  </tr>
-  <tr>
-    <td>MARKETCAP</td>
-    <td id="cap-0-4"></td>
-    <td id="cap-1-4"></td>
-    <td id="cap-2-4"></td>
-  </tr>
- 
-  <tr>
-    <td>SUPPLY</td>
-    <td id="supply-0-5"></td>
-    <td id="supply-1-5"></td>
-    <td id="supply-2-5"></td>
-  </tr>
-</tbody>
-                  
-                                </table>
+                            <tbody>
+                              <tr>
+                                <td>PRICE</td>
+                                <td id="price-0-0"></td>
+                                <td id="price-1-0"></td>
+                                <td id="price-2-0"></td>
+                              </tr>
+                              <tr>
+                                <td>24HR%CHANGE</td>
+                                <td id="change-0-1"></td>
+                                <td id="change-1-1"></td>
+                                <td id="change-2-1"></td>
+                              </tr>
+                              <tr>
+                                <td>24HRVOLUME</td>
+                                <td id="volume-0-2"></td>
+                                <td id="volume-1-2"></td>
+                                <td id="volume-2-2"></td>
+                              </tr>
+                              <tr>
+                                <td>OPENDAY</td>
+                                <td id="open-0-3"></td>
+                                <td id="open-1-3"></td>
+                                <td id="open-2-3"></td>
+                              
+                              </tr>
+                              <tr>
+                                <td>MARKETCAP</td>
+                                <td id="cap-0-4"></td>
+                                <td id="cap-1-4"></td>
+                                <td id="cap-2-4"></td>
+                              </tr>
+                            
+                              <tr>
+                                <td>SUPPLY</td>
+                                <td id="supply-0-5"></td>
+                                <td id="supply-1-5"></td>
+                                <td id="supply-2-5"></td>
+                              </tr>
+                            </tbody>
+                                              
+                            </table>
                       
                     </div>
-             
-                </div>
+                    <p class="custom-chart-link"><a id="chart" target="_blank">View Chart</a></p>
+                  </div>
 
                 <div class="row" id="news">
+
                     <div class="col s12 l6">
                       <div class="card">
                         <div class="card-image">
-                          <img src="./Assets/Images/img1.jpg" class="custom-news-images">
+                          <img src="./Assets/Images/img0.jpg" class="custom-news-images" id="image-news-0">
                           <span class="card-title " id="source-0">source</span>
-                          
                         </div>
                         <div class="card-content custom-content">
                             <p><span id="content-0"></span><a id="read-more-0"  target="_blank">Read More</a></p>
-                         
                         </div>
                         <div class="card-action custom-action">
                             <p class="custom-news-p"><span id="title-0">CryptoGuide News</span></p>
@@ -183,10 +215,10 @@
                       </div>
                     </div>
 
-                    <div class="col s12 l6 custom-height">
+                      <div class="col s12 l6 custom-height">
                         <div class="card custom-card">
                           <div class="card-image">
-                            <img src="./Assets/Images/img2.jpg" class="custom-news-images">
+                            <img src="./Assets/Images/img1.jpg" class="custom-news-images" id="image-news-1">
                             <span class="card-title custom-card-title" id="source-1">source</span>
                           </div>
                           <div class="card-content custom-content">
@@ -197,10 +229,11 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col s12 l6">
                         <div class="card custom-card">
                           <div class="card-image">
-                            <img src="./Assets/Images/img3.jpg" class="custom-news-images">
+                            <img src="./Assets/Images/img2.jpg" class="custom-news-images" id="image-news-2">
                             <span class="card-title custom-card-title" id="source-2">source</span>
                           </div>
                           <div class="card-content custom-content">
@@ -215,7 +248,7 @@
                       <div class="col s12 l6">
                         <div class="card">
                           <div class="card-image">
-                            <img src="./Assets/Images/img4.jpg" class="custom-news-images">
+                            <img src="./Assets/Images/img3.jpg" class="custom-news-images" id="image-news-3">
                             <span class="card-title custom-card-title" id="source-3">source</span>
                           </div>
                           <div class="card-content custom-content">
@@ -226,10 +259,12 @@
                           </div>
                         </div>
                       </div>
+
                   </div>
 
               </div>
               </div>
+            </div>
             </div>
     <!-- Modal Structure -->
         <div id="modal1" class="modal">
@@ -241,15 +276,17 @@
         <a class="modal-close waves-effect waves-green btn-flat" id="ok-button">ok</a>
         </div>
         </div>
+
+
         
-              <footer>
-                    <p>© 2020 Copyright CryptoGuide </p>
-            </footer>
+        <footer id="footerEl">
+            <p>© 2020 Copyright CryptoGuide </p>
+        </footer>
 
     <!-- Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="./Assets/js/script.js"></script>
   </body>
