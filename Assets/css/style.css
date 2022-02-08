@@ -14,6 +14,44 @@ nav {
 .custom-date {
   margin-right: 60px;
 }
+
+.marquee {
+  width: 100vw;
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  width: 100%; 
+  /* height
+  overflow:hidden */
+}
+
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling 20s linear infinite;
+  background-color: #00004d;
+}
+@keyframes scrolling {
+  0% { transform: translateX(100vw)}
+  100% { transform: translateX(-100vw)}
+}
+
+.marquee-content li {
+  border: 3px solid #00004d;
+  width: 15vw;
+  white-space: nowrap;
+  color: white;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+
+
 .slider{
   margin-top:7%;
 }

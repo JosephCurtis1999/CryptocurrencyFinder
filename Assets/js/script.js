@@ -20,6 +20,9 @@ var getCryptoCurrency = function (userInput) {
   saveSearch(userInput);
 };
 
+
+
+
 var getCryptoCurrencyData = function (userInput) {
   var apiURL =
     "https://newsdata.io/api/1/news?apikey=" +
@@ -120,6 +123,8 @@ var getCryptoPrice = function(userInput,symbol){
      displayInUSD(data,symbol)
     })
 }
+
+
 var displayInEur=function(data,symbol){
   var priceEl= document.getElementById("price-0-0")
   priceEl.textContent=data.RAW[symbol].EUR.PRICE.toFixed(2)
