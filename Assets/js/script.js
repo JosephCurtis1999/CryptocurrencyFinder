@@ -2,6 +2,7 @@
 var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
 //joe api pub_421842bf54a3bf0ae27130d690ea3e6b77ef
 // nadine api pub_42803e674039751e4b30dc24c745534322c8
+// rizwan api pub_4446310fc80473d1921d5256b1882cf7f047
 var displayCurrency = document.getElementById("display-currency");
 var modal = document.getElementById("modal1");
 // Shows date at the top of the page
@@ -44,7 +45,7 @@ var getCryptoCurrencyData = function (userInput) {
         var titleEl = document.getElementById("title-" + i);
         titleEl.textContent = data.results[i].title;
         // console.log(titleEl)
-
+        // using for loop to display the source for each news
         var sourceEl = document.getElementById("source-" + i);
         if (data.results[i].creator == null) {
           sourceEl.textContent = " ";
@@ -55,19 +56,20 @@ var getCryptoCurrencyData = function (userInput) {
             data.results[i].pubDate.split(" ")[0];
         }
         // console.log(sourceEl)
-
+        // using for loop to display the content for each news
         var contentEl = document.getElementById("content-" + i);
         if (data.results[i].content == null) {
           contentEl.textContent = " ";
         } else {
+          // using slice to limit the preview to 190 characters and adding '...' to end.
           contentEl.textContent = data.results[i].content.slice(0, 190) + "...";
         }
         // console.log(contentEl)
-
+        // read more text append to '...' for user to click on to access complete content
         var readMoreEl = document.getElementById("read-more-" + i);
         readMoreEl.href = data.results[i].link;
         // console.log(readMoreEl)
-
+        // using for loop to display the title for each news
         var imageEl = document.getElementById("image-news-" + i);
         if (data.results[i].image_url == null) {
           imageEl.setAttribute("src", "./Assets/Images/img" + i + ".jpg");
