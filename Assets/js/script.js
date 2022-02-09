@@ -279,6 +279,10 @@ coinForm.addEventListener("submit", function (event) {
     contentdivEl.style.display="block";
     var footerEl=document.getElementById("footerEl")
     footerEl.style.display="none"
+    var navbarEl1=document.getElementById("nav1")
+    navbarEl1.style.display="block";
+    var navbarEl2=document.getElementById("nav2")
+    navbarEl2.style.display="block";
     getCryptoCurrency(userInput);
     getCryptoSymbol(userInput);}
 });
