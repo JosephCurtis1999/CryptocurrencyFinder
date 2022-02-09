@@ -12,8 +12,44 @@ var momentNow = moment();
 $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
 var coinForm = document.getElementById("coin-form");
+
+var getCryptoPrice = function(userInput,symbol){
+  var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+  fetch(apiURLPrimaryData)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+     displayInEur(data,symbol)
+     displayInGBP(data,symbol)
+     displayInUSD(data,symbol)
+     sliderdisplay(data,symbol)
+    })
+}
 //api news
 // my api key for news pub_42803e674039751e4b30dc24c745534322c8
+
+
+window.onload = function(symbol) {
+  var apiURLSliderData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+  fetch(apiURLSliderData)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+    })
+  }
+  
+
+var sliderdisplay = function(data, symbol) {
+  var opendayEl = document.getElementById("BTC")
+  opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+} 
+
+
+
 
 var getCryptoCurrency = function (userInput) {
   getCryptoCurrencyData(userInput);
@@ -110,20 +146,36 @@ var getCryptoSymbol = function (userInput) {
     });
 };
 
-var getCryptoPrice = function(userInput,symbol){
-  var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
-  fetch(apiURLPrimaryData)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-     displayInEur(data,symbol)
-     displayInGBP(data,symbol)
-     displayInUSD(data,symbol)
-    })
-}
 
+// var getCryptoPrice = function(userInput,symbol){
+//   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+//   fetch(apiURLPrimaryData)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data)
+    //  displayInEur(data,symbol)
+    //  displayInGBP(data,symbol)
+    //  displayInUSD(data,symbol)
+    //  sliderdisplay(data,symbol)
+//     })
+// }
+
+// var sliderdisplay = function(data,symbol) {
+//   var opendayEl = document.getElementById("BTC")
+//   opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+// }
+
+// var sliderdisplay = function(data,symbol) {
+//   var opendayEl = document.getElementById("ETH")
+//   opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+// }
+
+// var sliderdisplay = function(data,symbol) {
+//   var opendayEl = document.getElementById("USDT")
+//   opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
+// }
 
 var displayInEur=function(data,symbol){
   var priceEl= document.getElementById("price-0-0")
