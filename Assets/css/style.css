@@ -16,7 +16,7 @@ nav {
 }
 
 .marquee {
-  width: 100vw;
+  /* width: 100vw; */
   height: 3vh;
   display: flex;
   justify-content: center;
@@ -49,8 +49,6 @@ nav {
 .marquee-content:hover {
   animation-play-state: paused;
 }
-
-
 
 .slider{
   margin-top:7%;
@@ -206,6 +204,9 @@ footer{
     text-align: center;
     padding:10px;
     border-radius: 10px;
+  }
+  footer{
+    display: none;
   }
   
 }
