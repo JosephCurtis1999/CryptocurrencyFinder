@@ -34,6 +34,7 @@ var getCryptoPrice = function (userInput, symbol) {
 //api news
 // my api key for news pub_42803e674039751e4b30dc24c745534322c8
 
+// pulls data from url for slider displayed on load.
 window.onload = function (symbol) {
   var apiURLSliderData =
     "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" +
