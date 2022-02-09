@@ -23,25 +23,25 @@
 
 ## Screenshot of deployed application.
 
-Weather Dashboard - city search.
+CryptoGuide - Homepage.
 
-![city search](./images/search-for-a-city.png)
+![homepage](./)
 
-Weather dashboard displaying current and future conditions.
+<!-- Weather dashboard displaying current and future conditions. -->
 
-![deployed application](./images/weather-dashboard-london.png)
+![deployed application](./)
 
-City search history populating.
+<!-- City search history populating. -->
 
-![city search history](./images/weather-dashboard-search-history.png)
+![city search history](./)
 
-Clicking on a city in the search history to display weather conditions once again.
+<!-- Clicking on a city in the search history to display weather conditions once again. -->
 
-![search history weather recall](./images/weather-dashboard-recall-previous-weather.png)
+![search history weather recall](./)
 
-Weather dashboard displaying saved data in local storage.
+<!-- Weather dashboard displaying saved data in local storage. -->
 
-![local storage](./images/local-storage.png)
+![local storage](./)
 
 ---
 
