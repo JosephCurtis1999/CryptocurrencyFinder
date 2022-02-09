@@ -2,6 +2,7 @@
 var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
 //joe api pub_421842bf54a3bf0ae27130d690ea3e6b77ef
 // nadine api pub_42803e674039751e4b30dc24c745534322c8
+// rizwan api pub_4446310fc80473d1921d5256b1882cf7f047
 var displayCurrency = document.getElementById("display-currency");
 var modal = document.getElementById("modal1");
 // Shows date at the top of the page
@@ -13,55 +14,56 @@ $("#currentDay").html(momentNow.format("DD MMMM YYYY"));
 
 var coinForm = document.getElementById("coin-form");
 
-var getCryptoPrice = function(userInput,symbol){
-  var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+var getCryptoPrice = function (userInput, symbol) {
+  var apiURLPrimaryData =
+    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" +
+    symbol +
+    "&tsyms=USD,EUR,GBP";
   fetch(apiURLPrimaryData)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
-     displayInEur(data,symbol)
-     displayInGBP(data,symbol)
-     displayInUSD(data,symbol)
-     sliderdisplay(data,symbol)
-    })
-}
+      console.log(data);
+      displayInEur(data, symbol);
+      displayInGBP(data, symbol);
+      displayInUSD(data, symbol);
+      sliderdisplay(data, symbol);
+    });
+};
 //api news
 // my api key for news pub_42803e674039751e4b30dc24c745534322c8
 
-
-window.onload = function(symbol) {
-  var apiURLSliderData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+window.onload = function (symbol) {
+  var apiURLSliderData =
+    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" +
+    symbol +
+    "&tsyms=USD,EUR,GBP";
   fetch(apiURLSliderData)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
-    })
-  }
-  
-
-var sliderdisplay = function(data, symbol) {
-  var opendayEl = document.getElementById("BTC")
-  opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
-} 
-
-
-
-
-var getCryptoCurrency = function (userInput) {
-  getCryptoCurrencyData(userInput);
-  saveSearch(userInput);
+      console.log(data);
+    });
 };
 
+var sliderdisplay = function (data, symbol) {
+  var opendayEl = document.getElementById("BTC");
+  opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2);
+};
 
-
-
+var getCryptoCurrency = function (userInput) {
+  // the below function is to to display the news
+  getCryptoCurrencyData(userInput);
+  // the below function is to save the user search to local storage
+  saveSearch(userInput);
+};
+// the function is responsible for the news api.
 var getCryptoCurrencyData = function (userInput) {
   var apiURL =
     "https://newsdata.io/api/1/news?apikey=" +
+    // there are two variables within this url, includes the api key and userinput that we have taken from the event listener
     apiKeyND +
     "&language=en&category=business,technology,politics,top,world&q=" +
     userInput;
@@ -71,82 +73,94 @@ var getCryptoCurrencyData = function (userInput) {
     })
     .then(function (data) {
       console.log(data);
+      // upon search displays a title for the table
 
       displayCurrency.textContent = userInput.toUpperCase() + " / ";
-      
-      for (var i = 0; i < 4; i++) {
 
+      for (var i = 0; i < 4; i++) {
+        // using for loop to display the title for each news
         var titleEl = document.getElementById("title-" + i);
         titleEl.textContent = data.results[i].title;
         // console.log(titleEl)
-
+        // using for loop to display the source for each news
         var sourceEl = document.getElementById("source-" + i);
-        if(data.results[i].creator==null){
-          sourceEl.textContent= " "
-        }
-        else{
-          sourceEl.textContent =data.results[i].creator+" | " +data.results[i].pubDate.split(" ")[0];
+        if (data.results[i].creator == null) {
+          sourceEl.textContent = " ";
+        } else {
+          sourceEl.textContent =
+            data.results[i].creator +
+            " | " +
+            // using split and position '0' in array to only display the date as it also inclded the time which we removed
+            data.results[i].pubDate.split(" ")[0];
         }
         // console.log(sourceEl)
-
+        // using for loop to display the content for each news
         var contentEl = document.getElementById("content-" + i);
-        if(data.results[i].content==null){
-          contentEl.textContent= " "
-        }
-        else{
+        if (data.results[i].content == null) {
+          contentEl.textContent = " ";
+        } else {
+          // using slice to limit the preview to 190 characters and adding '...' to end.
           contentEl.textContent = data.results[i].content.slice(0, 190) + "...";
         }
         // console.log(contentEl)
-
+        // 'read more' text append to '...' for user to click on link to access complete content
         var readMoreEl = document.getElementById("read-more-" + i);
         readMoreEl.href = data.results[i].link;
         // console.log(readMoreEl)
-
-        var imageEl = document.getElementById("image-news-"+i)
-        if(data.results[i].image_url==null){
-          imageEl.setAttribute("src","./Assets/Images/img"+i+".jpg")
+        // using for loop to display custom image for each news article called
+        var imageEl = document.getElementById("image-news-" + i);
+        if (data.results[i].image_url == null) {
+          // if the called news article displays null then it will default to saved images
+          imageEl.setAttribute("src", "./Assets/Images/img" + i + ".jpg");
+        } else {
+          imageEl.setAttribute("src", data.results[i].image_url);
         }
-        else{
-          imageEl.setAttribute("src",data.results[i].image_url)
-        }
 
-        searchIndex = i;
+        // searchIndex = i;
       }
     });
-    getCryptoSymbol(userInput)
+  getCryptoSymbol(userInput);
 };
-
+// This function is responsible for the cryptocurrency table content
 var getCryptoSymbol = function (userInput) {
-  var apiURLPrimary = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD";
+  var apiURLPrimary =
+    "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD";
   fetch(apiURLPrimary)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
-      for(var i=0;i<100;i++){
-        var coinFullName= data.Data[i].CoinInfo.FullName
-        var symbol=data.Data[i].CoinInfo.Name;
-        if(coinFullName.toUpperCase() == userInput.toUpperCase()){
+      // the below for loop ensures when the user inputs the full crypto name is recognised by the api. Previously it was only recognising the shortened version.
+      for (var i = 0; i < 100; i++) {
+        var coinFullName = data.Data[i].CoinInfo.FullName;
+        var symbol = data.Data[i].CoinInfo.Name;
+        if (coinFullName.toUpperCase() == userInput.toUpperCase()) {
           // console.log(symbol)
-          var chartEl = document.getElementById("chart")
-          chartEl.setAttribute("href","https://www.cryptocompare.com"+data.Data[i].CoinInfo.Url)
-          var symbol3El = document.getElementById("display-3symbol")
-          symbol3El.textContent= data.Data[i].CoinInfo.Name+ " - ";
-          var symbolEl = document.getElementById("display-symbol")
-          
-          var iconEl = document.getElementById("display-icon")
-          iconEl.setAttribute("src","https://www.cryptocompare.com"+ data.Data[i].CoinInfo.ImageUrl )
-          symbolEl.textContent= data.Data[i].DISPLAY.USD.FROMSYMBOL;
-          getCryptoPrice(userInput,symbol);
+          // direct link to cryptocoin chart located at bottom of table of contents
+          var chartEl = document.getElementById("chart");
+          chartEl.setAttribute(
+            "href",
+            "https://www.cryptocompare.com" + data.Data[i].CoinInfo.Url
+          );
+          // displayed the shortened version of the crypto coin as well as the associated coin symbol and coin icon providing a better user experience.
+          var symbol3El = document.getElementById("display-3symbol");
+          symbol3El.textContent = data.Data[i].CoinInfo.Name + " - ";
+          var symbolEl = document.getElementById("display-symbol");
+
+          var iconEl = document.getElementById("display-icon");
+          iconEl.setAttribute(
+            "src",
+            "https://www.cryptocompare.com" + data.Data[i].CoinInfo.ImageUrl
+          );
+          symbolEl.textContent = data.Data[i].DISPLAY.USD.FROMSYMBOL;
+          getCryptoPrice(userInput, symbol);
           return;
         }
-
       }
     });
 };
-
-
+// fetch's data and displays in GBP, EUR and USD.
 // var getCryptoPrice = function(userInput,symbol){
 //   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
 //   fetch(apiURLPrimaryData)
@@ -155,10 +169,10 @@ var getCryptoSymbol = function (userInput) {
 //     })
 //     .then(function (data) {
 //       console.log(data)
-    //  displayInEur(data,symbol)
-    //  displayInGBP(data,symbol)
-    //  displayInUSD(data,symbol)
-    //  sliderdisplay(data,symbol)
+//  displayInEur(data,symbol)
+//  displayInGBP(data,symbol)
+//  displayInUSD(data,symbol)
+//  sliderdisplay(data,symbol)
 //     })
 // }
 
@@ -177,52 +191,52 @@ var getCryptoSymbol = function (userInput) {
 //   opendayEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2)
 // }
 
-var displayInEur=function(data,symbol){
-  var priceEl= document.getElementById("price-0-0")
-  priceEl.textContent=data.RAW[symbol].EUR.PRICE.toFixed(2)
-  var changeEl =document.getElementById("change-0-1")
-  changeEl.textContent=data.RAW[symbol].EUR.CHANGE24HOUR.toFixed(2)
-  var volumeEl =document.getElementById("volume-0-2")
-  volumeEl.textContent=data.RAW[symbol].EUR.VOLUME24HOUR.toFixed(2)
-  var openEl =document.getElementById("open-0-3")
-  openEl.textContent=data.RAW[symbol].EUR.OPENDAY.toFixed(2)
-  var marketEl =document.getElementById("cap-0-4")
-  marketEl.textContent=data.RAW[symbol].EUR.MKTCAP.toFixed(2)
-  var supplyEl =document.getElementById("supply-0-5")
-  supplyEl.textContent=data.RAW[symbol].EUR.SUPPLY.toFixed(2)
-}
+// Unable to do a for loop so each piece of info has been defined below and coded to display to 2 decimal points and repeated for each currency as shown in the 3 sections below.
+var displayInEur = function (data, symbol) {
+  var priceEl = document.getElementById("price-0-0");
+  priceEl.textContent = data.RAW[symbol].EUR.PRICE.toFixed(2);
+  var changeEl = document.getElementById("change-0-1");
+  changeEl.textContent = data.RAW[symbol].EUR.CHANGE24HOUR.toFixed(2);
+  var volumeEl = document.getElementById("volume-0-2");
+  volumeEl.textContent = data.RAW[symbol].EUR.VOLUME24HOUR.toFixed(2);
+  var openEl = document.getElementById("open-0-3");
+  openEl.textContent = data.RAW[symbol].EUR.OPENDAY.toFixed(2);
+  var marketEl = document.getElementById("cap-0-4");
+  marketEl.textContent = data.RAW[symbol].EUR.MKTCAP.toFixed(2);
+  var supplyEl = document.getElementById("supply-0-5");
+  supplyEl.textContent = data.RAW[symbol].EUR.SUPPLY.toFixed(2);
+};
 
-var displayInGBP=function(data,symbol){
-  var priceEl= document.getElementById("price-1-0")
-  priceEl.textContent=data.RAW[symbol].GBP.PRICE.toFixed(2)
-  var changeEl =document.getElementById("change-1-1")
-  changeEl.textContent=data.RAW[symbol].GBP.CHANGE24HOUR.toFixed(2)
-  var volumeEl =document.getElementById("volume-1-2")
-  volumeEl.textContent=data.RAW[symbol].GBP.VOLUME24HOUR.toFixed(2)
-  var openEl =document.getElementById("open-1-3")
-  openEl.textContent=data.RAW[symbol].GBP.OPENDAY.toFixed(2)
-  var marketEl =document.getElementById("cap-1-4")
-  marketEl.textContent=data.RAW[symbol].GBP.MKTCAP.toFixed(2)
-  var supplyEl =document.getElementById("supply-1-5")
-  supplyEl.textContent=data.RAW[symbol].GBP.SUPPLY.toFixed(2)
-}
+var displayInGBP = function (data, symbol) {
+  var priceEl = document.getElementById("price-1-0");
+  priceEl.textContent = data.RAW[symbol].GBP.PRICE.toFixed(2);
+  var changeEl = document.getElementById("change-1-1");
+  changeEl.textContent = data.RAW[symbol].GBP.CHANGE24HOUR.toFixed(2);
+  var volumeEl = document.getElementById("volume-1-2");
+  volumeEl.textContent = data.RAW[symbol].GBP.VOLUME24HOUR.toFixed(2);
+  var openEl = document.getElementById("open-1-3");
+  openEl.textContent = data.RAW[symbol].GBP.OPENDAY.toFixed(2);
+  var marketEl = document.getElementById("cap-1-4");
+  marketEl.textContent = data.RAW[symbol].GBP.MKTCAP.toFixed(2);
+  var supplyEl = document.getElementById("supply-1-5");
+  supplyEl.textContent = data.RAW[symbol].GBP.SUPPLY.toFixed(2);
+};
 
-var displayInUSD=function(data,symbol){
-  var priceEl= document.getElementById("price-2-0")
-  priceEl.textContent=data.RAW[symbol].USD.PRICE.toFixed(2)
-  var changeEl =document.getElementById("change-2-1")
-  changeEl.textContent=data.RAW[symbol].USD.CHANGE24HOUR.toFixed(2)
-  var volumeEl =document.getElementById("volume-2-2")
-  volumeEl.textContent=data.RAW[symbol].USD.VOLUME24HOUR.toFixed(2)
-  var openEl =document.getElementById("open-2-3")
-  openEl.textContent=data.RAW[symbol].USD.OPENDAY.toFixed(2)
-  var marketEl =document.getElementById("cap-2-4")
-  marketEl.textContent=data.RAW[symbol].USD.MKTCAP.toFixed(2)
-  var supplyEl =document.getElementById("supply-2-5")
-  supplyEl.textContent=data.RAW[symbol].USD.SUPPLY.toFixed(2)
-}
-
-
+var displayInUSD = function (data, symbol) {
+  var priceEl = document.getElementById("price-2-0");
+  priceEl.textContent = data.RAW[symbol].USD.PRICE.toFixed(2);
+  var changeEl = document.getElementById("change-2-1");
+  changeEl.textContent = data.RAW[symbol].USD.CHANGE24HOUR.toFixed(2);
+  var volumeEl = document.getElementById("volume-2-2");
+  volumeEl.textContent = data.RAW[symbol].USD.VOLUME24HOUR.toFixed(2);
+  var openEl = document.getElementById("open-2-3");
+  openEl.textContent = data.RAW[symbol].USD.OPENDAY.toFixed(2);
+  var marketEl = document.getElementById("cap-2-4");
+  marketEl.textContent = data.RAW[symbol].USD.MKTCAP.toFixed(2);
+  var supplyEl = document.getElementById("supply-2-5");
+  supplyEl.textContent = data.RAW[symbol].USD.SUPPLY.toFixed(2);
+};
+// local storage for search history
 var saveSearch = function (userInput) {
   var historyEl = document.getElementById("history");
   var localStorageCurrencies = "";
@@ -261,34 +275,35 @@ var saveSearch = function (userInput) {
 //Event Listener for form
 coinForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  // text area set to trim
   var userInput = document.getElementById("textarea1").value.trim();
   // console.log(userInput);
+  // modal displays when the user does not enter any text and clicks search
   if (userInput == "") {
     modal.style.display = "block";
-    var okButton = document.getElementById("ok-button")
-    okButton.addEventListener("click",function(event){
-      modal.style.display="none"
+    var okButton = document.getElementById("ok-button");
+    okButton.addEventListener("click", function (event) {
+      modal.style.display = "none";
       return;
-    })
+    });
     return;
-  }
-  else{
-    var sliderEl = document.getElementById("slider-div")
-    sliderEl.style.display="none";
-    var contentdivEl=document.getElementById("content-div")
-    contentdivEl.style.display="block";
-    var footerEl=document.getElementById("footerEl")
-    footerEl.style.display="none"
-    var navbarEl1=document.getElementById("nav1")
-    navbarEl1.style.display="block";
-    var navbarEl2=document.getElementById("nav2")
-    navbarEl2.style.display="block";
+    // if a search is successfully inou tthen the slider is displayed to none and content displayed
+  } else {
+    var sliderEl = document.getElementById("slider-div");
+    sliderEl.style.display = "none";
+    var contentdivEl = document.getElementById("content-div");
+    contentdivEl.style.display = "block";
+    var footerEl = document.getElementById("footerEl");
+    footerEl.style.display = "none";
+    var navbarEl1 = document.getElementById("nav1");
+    navbarEl1.style.display = "block";
+    var navbarEl2 = document.getElementById("nav2");
+    navbarEl2.style.display = "block";
     getCryptoCurrency(userInput);
-    getCryptoSymbol(userInput);}
+    getCryptoSymbol(userInput);
+  }
 });
 
-
-$(document).ready(function(){
-  $('.slider').slider();
+$(document).ready(function () {
+  $(".slider").slider();
 });
-
