@@ -1,3 +1,9 @@
+/* disables horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 nav {
   background-color: #00004d;
 }
