@@ -181,6 +181,9 @@ footer{
   .custom-news-images{
     height:340px;
   }
+  .marquee-content {
+    width: 2.5vw;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -190,6 +193,9 @@ footer{
   }
   table{
     font-size:10px;
+  }
+  .marquee-content {
+    width: 4vw;
   }
 }
 
