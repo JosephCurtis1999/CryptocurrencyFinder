@@ -76,7 +76,7 @@ var getCryptoCurrencyData = function (userInput) {
       console.log(data);
       // upon search displays a title for the table
 
-      displayCurrency.textContent = userInput.toUpperCase() + " / ";
+      displayCurrency.textContent = userInput.toUpperCase() + " | ";
 
       for (var i = 0; i < 4; i++) {
         // using for loop to display the title for each news
@@ -288,23 +288,79 @@ coinForm.addEventListener("submit", function (event) {
       return;
     });
     return;
-    // if a search is successfully inou tthen the slider is displayed to none and content displayed
-  } else {
-    var sliderEl = document.getElementById("slider-div");
-    sliderEl.style.display = "none";
-    var contentdivEl = document.getElementById("content-div");
-    contentdivEl.style.display = "block";
-    var footerEl = document.getElementById("footerEl");
-    footerEl.style.display = "none";
-    var navbarEl1 = document.getElementById("nav1");
-    navbarEl1.style.display = "block";
-    var navbarEl2 = document.getElementById("nav2");
-    navbarEl2.style.display = "block";
-    getCryptoCurrency(userInput);
-    getCryptoSymbol(userInput);
+  }
+  else{
+        var topListUrl = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=99&tsym=GBP"
+        //this is the unordered list 
+        fetch(topListUrl)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+          
+        for(var i=0;i<99;i++){
+          if(userInput.toUpperCase()== data.Data[i].CoinInfo.FullName.toUpperCase()){
+            var sliderEl = document.getElementById("slider-div")
+            sliderEl.style.display="none";
+            var contentdivEl=document.getElementById("content-div")
+            contentdivEl.style.display="block";
+            var footerEl=document.getElementById("footerEl")
+            footerEl.style.display="none"
+            var navbarEl1=document.getElementById("nav1")
+            navbarEl1.style.display="block";
+            var navbarEl2=document.getElementById("nav2")
+            navbarEl2.style.display="block";
+            getCryptoCurrency(userInput);
+            getCryptoSymbol(userInput);
+            return;
+          }
+       
+        }
+        modal.style.display = "block";
+        var okButton = document.getElementById("ok-button")
+        okButton.addEventListener("click",function(event){
+          modal.style.display="none"
+          return;})
+      })
   }
 });
 
 $(document).ready(function () {
   $(".slider").slider();
 });
+
+var displayMarquee = function(){
+//this URL is from cryptocompare it returns the top 10 cryptocurrencies based on mktcap
+  var topListUrl = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=GBP"
+  //this is the unordered list 
+  var marqueeList = document.getElementById("display-marquee")
+  fetch(topListUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    //I repeated the same for loop twice in order to prevent any empty white space in the banner
+    //loops over top 10 currencies
+  for(var i=0;i<10;i++){
+    //creates a list time each time 
+    var marqueeListItem1 = document.createElement("li")
+    //appends the list item to unordered list
+    marqueeList.appendChild(marqueeListItem1)
+    //content of each list item is 3 letters name of cryptocurrency + mktcap --> example: BTC: 00000 £
+    marqueeListItem1.textContent= data.Data[i].CoinInfo.Name+": £ "+ data.Data[i].RAW.GBP.MKTCAP.toFixed(0)
+  }
+
+  for(var i=0;i<10;i++){
+    var marqueeListItem2 = document.createElement("li")
+    marqueeList.appendChild(marqueeListItem2)
+    marqueeListItem2.textContent= data.Data[i].CoinInfo.Name+": £ "+ data.Data[i].RAW.GBP.MKTCAP.toFixed(0)
+  }
+  })
+}
+
+displayMarquee()
+
+
+

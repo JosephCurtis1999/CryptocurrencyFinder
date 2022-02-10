@@ -113,6 +113,8 @@ h5{
   padding-top:2%;
   color:#1a237e;
   text-align: center;
+  background-color:#fffde7;
+  padding:0;
 }
 
 .custom-news-images{
@@ -162,7 +164,19 @@ footer{
   bottom:0;
   width:100%;
  }
-
+ /* top 15 page */
+ .marquee-page{
+  height:100px;
+  background-color:white;
+}
+/* top 15 page */
+.custom-page-button{
+  background-color:white;
+  color:blue;
+}
+.custom-page-button:hover{
+  background-color:#e0f7fa;
+}
 @media screen and (max-width: 1300px) {
   .custom-news-images{
     height:340px;
@@ -177,7 +191,6 @@ footer{
   table{
     font-size:10px;
   }
-  
 }
 
 @media screen and (max-width: 768px) {
@@ -214,6 +227,24 @@ footer{
   footer{
     display: none;
   }
-  
+  .marquee{
+    display: none;
+    }
+    
+  .custom-page-button{
+   font-size:10px;
+  }
+ 
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place front is invalid - may break your css so removed */  
+  left: 0;
+  right:0; /* Full width (left and right 0) */
+  top: 0;
+  bottom: 0; /* Full height top and bottom 0 */
+  z-index: 9999; /* Sit on top - higher than any other z-index in your site*/
+  height:200px;
 }
 
