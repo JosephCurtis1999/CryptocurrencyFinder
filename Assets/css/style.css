@@ -177,6 +177,7 @@ footer{
 .custom-page-button:hover{
   background-color:#e0f7fa;
 }
+
 @media screen and (max-width: 1300px) {
   .custom-news-images{
     height:340px;

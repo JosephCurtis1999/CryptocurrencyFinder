@@ -1,5 +1,5 @@
 // variables for News Data API key
-var apiKeyND = "pub_42803e674039751e4b30dc24c745534322c8";
+var apiKeyND = "pub_421842bf54a3bf0ae27130d690ea3e6b77ef";
 //joe api pub_421842bf54a3bf0ae27130d690ea3e6b77ef
 // nadine api pub_42803e674039751e4b30dc24c745534322c8
 // rizwan api pub_4446310fc80473d1921d5256b1882cf7f047
@@ -182,41 +182,50 @@ var displayInUSD = function (data, symbol) {
   var supplyEl = document.getElementById("supply-2-5");
   supplyEl.textContent = data.RAW[symbol].USD.SUPPLY.toFixed(2);
 };
-// local storage for search history
-var saveSearch = function (userInput) {
+
+
+
+var saveSearch=function(userInput){
+  var finalSearch ={
+    currency:userInput
+  }
+  var allSearches= localStorage.getItem("allSearches")
+  if(allSearches==null){
+    allSearches=[]
+  }
+  else{
+    allSearches=JSON.parse(allSearches)
+  }
+  allSearches.push(finalSearch)
+  localStorage.setItem("allSearches",JSON.stringify(allSearches))
+
+  var clearSearch = document.getElementById("clear-search");
+  clearSearch.addEventListener("click",function(){
+    localStorage.clear();
+    location.reload();
+  })
+
   var historyEl = document.getElementById("history");
-  var localStorageCurrencies = "";
-  var existingCurrencies = JSON.parse(
-    localStorage.getItem(localStorageCurrencies)
-  );
-  var newCurrency = {
-    currency: userInput,
-  };
-  var updatedCurrencies = [newCurrency];
-  if (existingCurrencies) {
-    updatedCurrencies = updatedCurrencies.concat(existingCurrencies);
-  }
-  localStorage.setItem(
-    localStorageCurrencies,
-    JSON.stringify(updatedCurrencies)
-  );
-  for (var i = 0; i < updatedCurrencies.length; i++) {
-    var listItemEl = document.createElement("li");
-    var buttonEl = document.createElement("button");
-    listItemEl.setAttribute("class", "collection-item hoverable");
-    buttonEl.setAttribute("class", "custom-btn-history");
-    buttonEl.textContent = updatedCurrencies[i].currency.toUpperCase();
-    historyEl.appendChild(listItemEl);
-    listItemEl.appendChild(buttonEl);
-    buttonEl.addEventListener("click", function () {
-      userInput = updatedCurrencies[i].currency;
-      getCryptoCurrencyData(userInput);
-      // getCryptoSymbol(userInput);
-      return;
-    });
+  historyEl.innerHTML=""
+  if (allSearches !== null) {
+    for (var i = 0; i < allSearches.length; i++) {
+        var listItemEl = document.createElement("li");
+        var buttonEl = document.createElement("button");
+        buttonEl.textContent = allSearches[i].currency.toUpperCase();
+        listItemEl.setAttribute("class", "collection-item hoverable");
+        buttonEl.setAttribute("class", "custom-btn-history");
+        historyEl.appendChild(listItemEl);
+        listItemEl.appendChild(buttonEl);
+        buttonEl.addEventListener("click", function () {
+          userInput = this.textContent;
+          console.log(this.textContent)
+          getCryptoCurrencyData(userInput);
+      })
+      
+  }return;
+    }
     return;
-  }
-};
+}
 
 //Event Listener for form
 coinForm.addEventListener("submit", function (event) {
