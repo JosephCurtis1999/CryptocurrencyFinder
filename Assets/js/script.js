@@ -133,7 +133,7 @@ var getCryptoPrice = function(userInput,symbol){
  displayInEur(data,symbol)
  displayInGBP(data,symbol)
  displayInUSD(data,symbol)
- sliderdisplay(data,symbol)
+ 
     })
 }
 
