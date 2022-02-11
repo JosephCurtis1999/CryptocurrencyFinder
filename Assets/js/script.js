@@ -22,6 +22,7 @@ var getCryptoCurrency = function (userInput) {
 };
 // the function is responsible for the news api.
 var getCryptoCurrencyData = function (userInput) {
+  // news data url
   var apiURL =
     "https://newsdata.io/api/1/news?apikey=" +
     // there are two variables within this url, includes the api key and userinput that we have taken from the event listener
@@ -36,7 +37,11 @@ var getCryptoCurrencyData = function (userInput) {
       console.log(data);
       // upon search displays a title for the table
 
+
       displayCurrency.textContent = userInput.toUpperCase() + " | ";
+
+     
+
 
       for (var i = 0; i < 4; i++) {
         // using for loop to display the title for each news
@@ -52,6 +57,7 @@ var getCryptoCurrencyData = function (userInput) {
             data.results[i].creator +
             " | " +
             // using split and position '0' in array to only display the date as it also inclded the time which we removed
+
             data.results[i].pubDate.split(" ")[0];
         }
         // console.log(sourceEl)
@@ -64,6 +70,7 @@ var getCryptoCurrencyData = function (userInput) {
           contentEl.textContent = data.results[i].content.slice(0, 190) + "...";
         }
         // console.log(contentEl)
+
         // 'read more' text append to '...' for user to click on link to access complete content
         var readMoreEl = document.getElementById("read-more-" + i);
         readMoreEl.href = data.results[i].link;
@@ -72,6 +79,9 @@ var getCryptoCurrencyData = function (userInput) {
         var imageEl = document.getElementById("image-news-" + i);
         if (data.results[i].image_url == null) {
           // if the called news article displays null then it will default to saved images
+
+        // read more text append to '...' for user to click on to access complete content
+      
           imageEl.setAttribute("src", "./Assets/Images/img" + i + ".jpg");
         } else {
           imageEl.setAttribute("src", data.results[i].image_url);
@@ -92,19 +102,25 @@ var getCryptoSymbol = function (userInput) {
     })
     .then(function (data) {
       console.log(data);
+
       // the below for loop ensures when the user inputs the full crypto name is recognised by the api. Previously it was only recognising the shortened version.
+
       for (var i = 0; i < 100; i++) {
         var coinFullName = data.Data[i].CoinInfo.FullName;
         var symbol = data.Data[i].CoinInfo.Name;
         if (coinFullName.toUpperCase() == userInput.toUpperCase()) {
           // console.log(symbol)
+
           // direct link to cryptocoin chart located at bottom of table of contents
+
           var chartEl = document.getElementById("chart");
           chartEl.setAttribute(
             "href",
             "https://www.cryptocompare.com" + data.Data[i].CoinInfo.Url
           );
+
           // displayed the shortened version of the crypto coin as well as the associated coin symbol and coin icon providing a better user experience.
+
           var symbol3El = document.getElementById("display-3symbol");
           symbol3El.textContent = data.Data[i].CoinInfo.Name + " - ";
           var symbolEl = document.getElementById("display-symbol");
@@ -121,14 +137,17 @@ var getCryptoSymbol = function (userInput) {
       }
     });
 };
+
 // fetch's data and displays in GBP, EUR and USD.
 var getCryptoPrice = function(userInput,symbol){
   var apiURLPrimaryData = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+symbol+"&tsyms=USD,EUR,GBP"
+
   fetch(apiURLPrimaryData)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+
       console.log(data)
  displayInEur(data,symbol)
  displayInGBP(data,symbol)
@@ -138,6 +157,9 @@ var getCryptoPrice = function(userInput,symbol){
 }
 
 // Unable to do a for loop so each piece of info has been defined below and coded to display to 2 decimal points and repeated for each currency as shown in the 3 sections below.
+};
+
+
 var displayInEur = function (data, symbol) {
   var priceEl = document.getElementById("price-0-0");
   priceEl.textContent = data.RAW[symbol].EUR.PRICE.toFixed(2);
@@ -167,6 +189,7 @@ var displayInGBP = function (data, symbol) {
   var supplyEl = document.getElementById("supply-1-5");
   supplyEl.textContent = data.RAW[symbol].GBP.SUPPLY.toFixed(2);
 };
+
 
 var displayInUSD = function (data, symbol) {
   var priceEl = document.getElementById("price-2-0");
@@ -242,6 +265,7 @@ coinForm.addEventListener("submit", function (event) {
       return;
     });
     return;
+
   }
   else{
         var topListUrl = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=99&tsym=GBP"
@@ -291,10 +315,10 @@ coinForm.addEventListener("submit", function (event) {
   }
 });
 
+// JS for slider from materialize
 $(document).ready(function () {
   $(".slider").slider();
 });
-
 var displayMarquee = function(){
 //this URL is from cryptocompare it returns the top 10 cryptocurrencies based on mktcap
   var topListUrl = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=GBP"
@@ -359,3 +383,18 @@ if(arrow.textContent="arrow_drop_down"){
 
 $('.dropdown-trigger').dropdown();
 dropdown()
+
+//   } else {
+//     var sliderEl = document.getElementById("slider-div");
+//     sliderEl.style.display = "none";
+//     var contentdivEl = document.getElementById("content-div");
+//     contentdivEl.style.display = "block";
+//     var footerEl = document.getElementById("footerEl");
+//     footerEl.style.display = "none";
+//     getCryptoCurrency(userInput);
+//     getCryptoSymbol(userInput);
+//   }
+// });
+
+
+

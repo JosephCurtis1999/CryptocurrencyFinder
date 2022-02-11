@@ -9,7 +9,7 @@
     <!-- Link to css -->
     <link rel="stylesheet" href="./Assets/css/style.css" />
     <!-- Title -->
-    <title>Cryptocurrency finder</title>
+    <title>CryptoGuide</title>
     <!-- Icon -->
     <link rel="shortcut icon" type="image/ico" href="./Assets/Images/favicon.ico">
     <!-- font-awesome for icons -->
@@ -49,8 +49,10 @@
                       </ul>
                     <!-- Img will take you to the start of index page -->
                     <a href="index.html" class="brand-logo center">
+                      <!-- main page header logo -->
                         <img src="./Assets/Images/cryptocurrency.jpg" class="custom-logo-img">
                     </a>
+                    <!-- These are the navigation links locate in the nav bar -->
                     <ul class="right hide-on-med-and-down">
                       <li class="custom-date" id="currentDay"><span></span></li>
                       <li><a href="#price" style="display:none;" id="nav1">Prices&More</a></li>
@@ -65,12 +67,16 @@
         </div>
     </header>
 
+
     <div class="marquee">
       <ul class="marquee-content" id="display-marquee">
     
       </ul>
     </div>
   
+
+  <!-- Custom slider with images, titles and content -->
+ 
     <div class="row s12 m4 l2">
     <div class="slider " id="slider-div">
       <ul class="slides">
@@ -105,10 +111,7 @@
       </ul>
     </div>
   </div>
-
-
-
-<!-- form and button -->
+<!-- input field form and search button-->
     <div class="row ">
         <div class="col s12 m4 l2"></div>
         
@@ -133,6 +136,7 @@
 
 
         <div class="row">
+          <!-- page is set to display none  and only appears once user has completed a search -->
           <div id="content-div" style="display:none;">
         <!-- search history -->
         <div class="col s12 m4 l2 center-align">
@@ -152,8 +156,7 @@
             </ul>
             <button class="custom-clear center-align" id="clear-search"><i class="material-icons">close</i> </button>
         </div>
-       
-
+      
         <!-- Data and image -->
         <div class="col s12 m8 l10"> 
         <!-- Note that "m8 l9" was added -->
@@ -172,7 +175,7 @@
                     <p class="custom-title"><span id="display-currency"></span><span id="display-3symbol"></span><span id="display-symbol"></span</p>
 
                     <div class="card-content">
-                        
+                        <!-- complete table contents including header and row labels -->
                         <table class="highlight">
                           
                             <thead>
@@ -226,11 +229,12 @@
                             </tbody>
                                               
                             </table>
-                      
+                      <!-- link for 'view chart' positioned at base of table -->
                     </div>
                     <p class="custom-chart-link"><a id="chart" target="_blank">View Chart</a></p>
                   </div>
-
+                      <!-- start of news content repeated over four sections -->
+                      <!-- Inlcudes, title, content, creator, date created, custom image and link for news website -->
                 <div class="row" id="news">
 
                     <div class="col s12 l6 custom-height">
