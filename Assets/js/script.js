@@ -265,6 +265,8 @@ coinForm.addEventListener("submit", function (event) {
             navbarEl1.style.display="block";
             var navbarEl2=document.getElementById("nav2")
             navbarEl2.style.display="block";
+            var menu=document.getElementById("menu")
+            menu.style.display="block";
             getCryptoCurrency(userInput);
             getCryptoSymbol(userInput);
             return;
@@ -318,3 +320,4 @@ displayMarquee()
 
 
 
+$('.dropdown-trigger').dropdown();
