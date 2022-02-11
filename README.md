@@ -56,7 +56,7 @@ https://newsdata.io/
 
 ## The URL of the deployed application.
 
-<!-- https://riz1ash786.github.io/weather-dashboard/ -->
+https://github.com/JosephCurtis1999/CryptocurrencyFinder
 
 ## The URL of the GitHub repository.
 
