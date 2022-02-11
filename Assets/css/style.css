@@ -191,6 +191,10 @@ footer {
   border-style: hidden;
 }
 
+@media screen and (max-width: 1600px) {
+.custom-date {
+  display: none;
+}}
 @media screen and (max-width: 1300px) {
   .custom-news-images {
     height: 340px;
@@ -198,9 +202,7 @@ footer {
   .marquee-content li {
     width: 25vw;
   }
-  .custom-date {
-    display: none;
-  }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -319,4 +321,24 @@ footer {
   color: #00004d;
   font-weight: 470;
   padding-bottom: 2rem;
+}
+
+.card-content ol li{
+  text-align: left;;
+}
+
+.Basics-title{
+  padding-top:2%;
+  padding-bottom:2%;
+  text-align: center;
+  font-size:15px;
+  background-color: #e8eaf6 ;
+}
+.h1-basic-titles{
+  font-size:30px;
+  font-variant: small-caps;
+  margin-bottom:0px;
+} 
+.exchange-cards{
+  height:200px;
 }
