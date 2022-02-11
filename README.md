@@ -20,27 +20,8 @@ Nadine, Joe and I have collaborated on this task and created an application that
 
 ---
 
-## Screenshot of deployed application.
-
-CryptoGuide - Homepage.
-
-![homepage](./)
-
-<!-- Weather dashboard displaying current and future conditions. -->
-
-![deployed application](./)
-
-<!-- City search history populating. -->
-
-![city search history](./)
-
-<!-- Clicking on a city in the search history to display weather conditions once again. -->
-
-![search history weather recall](./)
-
-<!-- Weather dashboard displaying saved data in local storage. -->
-
-![local storage](./)
+## Demo
+![Project1 Demo](assets/Images/Cryptocurrency-finder.gif)
 
 ---
 
