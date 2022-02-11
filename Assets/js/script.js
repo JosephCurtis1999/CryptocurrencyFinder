@@ -157,7 +157,7 @@ var getCryptoPrice = function(userInput,symbol){
 }
 
 // Unable to do a for loop so each piece of info has been defined below and coded to display to 2 decimal points and repeated for each currency as shown in the 3 sections below.
-};
+
 
 
 var displayInEur = function (data, symbol) {
