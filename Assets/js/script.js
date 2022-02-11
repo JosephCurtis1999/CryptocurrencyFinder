@@ -245,3 +245,9 @@ coinForm.addEventListener("submit", function (event) {
 $(document).ready(function () {
   $(".slider").slider();
 });
+
+// const card = document.querySelector('.card__inner');
+
+// card.addEventListener('click', function () {
+//     card.classList.toggle('is-flipped');
+// });
