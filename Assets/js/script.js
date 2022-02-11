@@ -339,6 +339,7 @@ hideEl.addEventListener("click",function(event){
   arrow.textContent="arrow_drop_down"
   clearSearchbtn.style.display="none"
   historydiv.style.display="none"
+  clearSearchbtn.style.textAlign="center"
   dropup()
 })
 }}
@@ -351,6 +352,7 @@ if(arrow.textContent="arrow_drop_down"){
    
     clearSearchbtn.style.display="block"
     historydiv.style.display="block"
+    clearSearchbtn.style.textAlign="center"
     dropdown()
 })}
 }
