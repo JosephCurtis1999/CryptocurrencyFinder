@@ -193,9 +193,15 @@ footer{
   .marquee-content li{
     width: 25vw;
   }
+  .custom-date {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1000px) {
+  nav{
+    font-size: 1px;
+  }
   .custom-btn {
     margin-top:0;
     text-align: center;
@@ -203,7 +209,15 @@ footer{
   table{
     font-size:10px;
   }
-
+ 
+  .custom-logo-img {
+    top:0;
+    height:70px;
+  }
+  .custom-logo-text {
+    font-size:5px;
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -246,6 +260,11 @@ footer{
   .custom-page-button{
    font-size:10px;
   }
+  .custom-logo-img {
+    height:60px;
+    width:350x;
+  }
+
 }
 
 .modal {
@@ -259,3 +278,23 @@ footer{
   height:200px;
 }
 
+.custom-arrow{
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.custom-clear{
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+text-align: center;
+}

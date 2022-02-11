@@ -33,3 +33,5 @@ const card6 = document.querySelector('.card__inner-6');
 card6.addEventListener('click', function () {
     card6.classList.toggle('is-flipped');
 });
+
+$('.dropdown-trigger').dropdown();

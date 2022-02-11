@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <!-- Link to Materialize Css framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <!-- Link to css -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <link rel="stylesheet" href="./Assets/css/CryptoBasics.css" />
+    <!-- Title -->
+    <title>CryptoGuide</title>
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/ico" href="./Assets/Images/favicon.ico">
+    <!-- font-awesome for icons -->
     <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./Assets/css/style.css">
-  <link rel="stylesheet" href="Assets/css/CryptoBasics.css">
-    <title>CryptoBasics</title>
-</head>
+  </head>
+
 <body>
     <header>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <a href="index.html" class="brand-logo custom-logo-text">CryptoGuide</a>
-                    <a class="btn-floating dropdown-trigger hide-on-large-only"  href='#' data-target='dropdown1' style="display:none;" id="menu"><i class="material-icons">menu</i></a>
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="./page.html" target="_blank">Top 15</a></li>
-                        <li><a href="./index.html" target="_blank">Home page</a></li>
-                        <li><a href="#price" target="_blank">News</a></li>
-                        <li><a href="#news" target="_blank">Prices &More</a></li>
-                        <li><a href="CryptoBasics.html" target="_blank">CryptoBasics</a></li>
-                      </ul>
+                    <a href="#" class="brand-logo custom-logo-text hide-on-med-and-down">CryptoGuide</a>
                     <!-- Img will take you to the start of index page -->
                     <a href="index.html" class="brand-logo center">
                         <img src="./Assets/Images/cryptocurrency.jpg" class="custom-logo-img">
                     </a>
                     <ul class="right hide-on-med-and-down">
-                      <li class="custom-date" id="currentDay"><span></span></li>
-                      <li><a href="#price" style="display:none;" id="nav1">Prices&More</a></li>
-                      <li><a href="#news" style="display:none;" id="nav2">News</a></li>
-                      <li><a href="./page.html" target="_blank" >Top 15</a></li>
-                      <li><a href="CryptoBasics.html" target="_blank" >CryptoBasics</a></li>
+                      <li><a href="./index.html" >Home</a></li>
+                      <li><a href="./page.html">Top 15</a></li>
                     </ul>
- 
-                  </div>
+                    <a class="btn-floating dropdown-trigger hide-on-large-only"  href='#' data-target='dropdown4' id="menu1"><i class="material-icons">menu</i></a>
+                    <ul id='dropdown4' class='dropdown-content'>
+      
+                      <li><a href="./index.html">Home page</a></li>
+                      <li><a href="./page.html">Top 15</a></li>
+                    </ul>
+  
             </nav>
         </div>
     </header>
@@ -61,7 +60,9 @@
     <div class="card">
         <div class="card__inner">
             <div class="card__face card__face--front">
-                <h2>What is cryptocurrency?</h2>
+                <h2>What is cryptocurrency</h2>
+                <p><i class="far fa-question-circle"></i></p>
+                <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
             </div>
             <div class="card__face card__face--back">
                 <div class="card__content">
@@ -83,7 +84,9 @@
     <div class="card-2">
         <div class="card__inner-2">
             <div class="card__face-2 card__face--front-2">
-                <h2>What is blockchain?</h2>
+                <h2>What is blockchain</h2>
+                <p><i class="far fa-question-circle"></i></p>
+                <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
             </div>
             <div class="card__face-2 card__face--back-2">
                 <div class="card__content-2">
@@ -106,7 +109,9 @@
     <div class="card-3">
         <div class="card__inner-3">
             <div class="card__face-3 card__face--front-3">
-                <h2>What is Bitcoin?</h2>
+                <h2>What is Bitcoin</h2>
+                <p><i class="far fa-question-circle"></i></p>
+                <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
             </div>
             <div class="card__face-3 card__face--back-3">
                 <div class="card__content-3">
@@ -133,7 +138,9 @@
         <div class="card-4">
             <div class="card__inner-4">
                 <div class="card__face-4 card__face--front-4">
-                    <h2>What is Ethereum?</h2>
+                    <h2>What is Ethereum</h2>
+                    <p><i class="far fa-question-circle"></i></p>
+                    <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
                 </div>
                 <div class="card__face-4 card__face--back-4">
                     <div class="card__content-4">
@@ -158,7 +165,9 @@
         <div class="card-5">
             <div class="card__inner-5">
                 <div class="card__face-5 card__face--front-5">
-                    <h2>Where to buy?</h2>
+                    <h2>Where to buy</h2>
+                    <p><i class="far fa-question-circle"></i></p>
+                    <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
                 </div>
                 <div class="card__face-5 card__face--back-5">
                     <div class="card__content-5">
@@ -180,7 +189,9 @@
         <div class="card-6">
             <div class="card__inner-6">
                 <div class="card__face-6 card__face--front-6">
-                    <h2>Want to learn more?</h2>
+                    <h2>Want to learn more</h2>
+                    <p><i class="far fa-question-circle"></i></p>
+                    <div class="footer">   <img src="./Assets/Images/favicon.ico"> <br> CryptoGuide </div>
                 </div>
                 <div class="card__face-6 card__face--back-6">
                     <div class="card__content-6">
@@ -204,11 +215,13 @@
 
     
 
-    </div>
+    </div> 
 
 
 
-    <script src="./Assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./Assets/js/Cryptolearn.js"></script>
     
 </body>

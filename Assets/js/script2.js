@@ -60,3 +60,5 @@ for(var i=0;i<15;i++){
 }
 
 displaytable()
+
+$('.dropdown-trigger').dropdown();

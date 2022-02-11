@@ -28,14 +28,21 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <a href="index.html" class="brand-logo custom-logo-text">CryptoGuide</a>
+                    <a href="index.html" class="brand-logo custom-logo-text hide-on-med-and-down" id="page-name">CryptoGuide</a>
                     <a class="btn-floating dropdown-trigger hide-on-large-only"  href='#' data-target='dropdown1' style="display:none;" id="menu"><i class="material-icons">menu</i></a>
                       <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="./page.html" target="_blank">Top 15</a></li>
-                        <li><a href="./index.html" target="_blank">Home page</a></li>
-                        <li><a href="#price" target="_blank">News</a></li>
-                        <li><a href="#news" target="_blank">Prices &More</a></li>
-                        <li><a href="CryptoBasics.html" target="_blank">CryptoBasics</a></li>
+                        <li><a href="./page.html">Top 15</a></li>
+                        <li><a href="./index.html">Home page</a></li>
+                        <li><a href="#price">News</a></li>
+                        <li><a href="#news">Prices &More</a></li>
+                        <li><a href="./CryptoBasics.html">Crypto Basics</a></li>
+                      </ul>
+                      
+                      <a class="btn-floating dropdown-trigger hide-on-large-only"  href='#' data-target='dropdown2' id="menu1"><i class="material-icons">menu</i></a>
+                      <ul id='dropdown2' class='dropdown-content'>
+                        <li><a href="./page.html">Top 15</a></li>
+                        <li><a href="./index.html">Home page</a></li>
+                        <li><a href="./CryptoBasics.html">Crypto Basics</a></li>
                       </ul>
                     <!-- Img will take you to the start of index page -->
                     <a href="index.html" class="brand-logo center">
@@ -45,10 +52,10 @@
                       <li class="custom-date" id="currentDay"><span></span></li>
                       <li><a href="#price" style="display:none;" id="nav1">Prices&More</a></li>
                       <li><a href="#news" style="display:none;" id="nav2">News</a></li>
-                      <li><a href="./page.html" target="_blank" >Top 15</a></li>
-                      <li><a href="CryptoBasics.html" target="_blank">CryptoBasics</a></li>
+                      <li><a href="./page.html" id="nav3" >Top 15</a></li>
+                      <li><a href="./CryptoBasics.html" id="nav4">CryptoBasics</a></li>
                     </ul>
- 
+                  
                   </div>
             </nav>
         </div>
@@ -56,7 +63,7 @@
 
     <div class="marquee">
       <ul class="marquee-content" id="display-marquee">
-       
+    
       </ul>
     </div>
   
@@ -131,11 +138,15 @@
             3-columns-wide on large screens,
             4-columns-wide on medium screens,
             12-columns-wide on small screens  -->
-            <h5 class="center-align">  Search History</h5> 
-            <a class="btn-floating btn-large waves-effect waves-light  btn-small  indigo lighten-3" id="clear-search"><i class="material-icons">close</i></a>
+            <h5 class="center-align">  
+              <button class="custom-arrow" id="hide"><i class="material-icons" id="arrow">arrow_drop_up</i> </button>
+              History
+            </h5> 
+          
             <ul class="collection with-header custom-search-history" id="history">
                 <!-- <li class="collection-item hoverable"><button class="custom-btn-history">Bitcoin</button></li> -->
             </ul>
+            <button class="custom-clear" id="clear-search"><i class="material-icons">close</i> </button>
         </div>
        
 

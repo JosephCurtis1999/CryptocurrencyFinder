@@ -1,25 +1,20 @@
-.Basics-title h1 {
-    text-align: center;
-    padding-top: 10rem;
-    font-size: 35px;
-    padding-bottom: 5rem;
-    color: #00004d;
-    font-weight: 600;
-  
-  }
-  
-  .Basics-title p {
-    text-align: center;
-    font-size: 18px;
-    color: #00004d;
-    font-weight: 470;
-  }
-  
-  .card, .card-2, .card-3, .card-4, .card-5, .card-6 {
+.Basics-title{
+  padding-top:2%;
+  padding-bottom:2%;
+  text-align: center;
+  font-size:15px;
+  background-color: #e8eaf6 ;
+}
+h1{
+  font-size:30px;
+  font-variant: small-caps;
+  margin-bottom:0px;
+} 
+  /* .card, .card-2, .card-3, .card-4, .card-5, .card-6 {
     margin: 100px auto 0;
     width: 450px;
     height: 500px;
-  }
+  } */
   
   .card__inner, .card__inner-2, .card__inner-3, .card__inner-4, .card__inner-5, .card__inner-6 {
     width: 100%;
@@ -58,8 +53,16 @@
   
   .card__face--front h2, .card__face--front-2 h2, .card__face--front-3 h2, .card__face--front-4 h2, .card__face--front-5 h2, .card__face--front-6 h2 {
     color: white;
-    font-size: 32px;
+    font-size: 25px;
     align-items: center;
+    margin-bottom:0;
+  
+  }
+  .card__face--front p, .card__face--front-2 p, .card__face--front-3 p, .card__face--front-4 p, .card__face--front-5 p, .card__face--front-6 p {
+    color: white;
+    font-size: 50px;
+    align-items: center;
+    margin-top:0;
   
   }
   
@@ -128,10 +131,15 @@
     }
   
     .card__body, .card__body-2, .card__body-3, .card__body-4, .card__body-5, .card__body-6 {
-      
       font-size: 19px;
+      
     }    
+    .CryptoBasics-page {
+      width: 100%;
+      height: 170vh;
+    }
   }
+
   
   @media screen and (max-width: 1650px) {
     .card, .card-2, .card-3, .card-4, .card-5, .card-6 {
@@ -198,6 +206,7 @@
       font-size: 24px;
   
     }  
+
   }
   
   @media screen and (max-width: 1150px) {
@@ -219,6 +228,12 @@
     .Developer-card {
       display: flex;
       flex-direction: column;
+      
+    }
+    .CryptoBasics-page {
+      width: 100%;
+      height: 100%;
+      margin-bottom:50px;
     }
   }
   
@@ -242,4 +257,27 @@
       display: flex;
       flex-direction: column;
     }
+    .CryptoBasics-page {
+      width: 100%;
+      height: 100%;
+      margin-bottom:50px;
+    }
   }
+
+
+  .footer{
+    color:white;
+    margin-top:30%;
+    font-variant: small-caps;
+    font-size: 15px;
+    text-align: center;
+   
+  }
+
+  .footer img{
+    height:30px;
+    width:30px;
+    padding-bottom:0px;
+    margin-bottom:0;
+  }
+

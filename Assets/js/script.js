@@ -265,8 +265,17 @@ coinForm.addEventListener("submit", function (event) {
             navbarEl1.style.display="block";
             var navbarEl2=document.getElementById("nav2")
             navbarEl2.style.display="block";
+            var initialmenu=document.getElementById("menu1")
+            initialmenu.style.display="none";
             var menu=document.getElementById("menu")
             menu.style.display="block";
+            var date1=document.getElementById("currentDay")
+            date1.innerHTML=""
+            var top15page=document.getElementById("nav3")
+            top15page.innerHTML=""
+            var cryptobasicspage=document.getElementById("nav4")
+            cryptobasicspage.innerHTML=""
+        
             getCryptoCurrency(userInput);
             getCryptoSymbol(userInput);
             return;
@@ -318,6 +327,33 @@ var displayMarquee = function(){
 
 displayMarquee()
 
+var historydiv = document.getElementById("history")
+var clearSearchbtn = document.getElementById("clear-search")
+var hideEl = document.getElementById("hide")
+var arrow=document.getElementById("arrow")
 
+var dropdown = function(){
+if(arrow.textContent="arrow_drop_up"){
+hideEl.addEventListener("click",function(event){
+  event.preventDefault()
+  arrow.textContent="arrow_drop_down"
+  clearSearchbtn.style.display="none"
+  historydiv.style.display="none"
+  dropup()
+})
+}}
+
+var dropup=function(){
+if(arrow.textContent="arrow_drop_down"){
+  hideEl.addEventListener("click",function(event){
+    event.preventDefault()
+    arrow.textContent="arrow_drop_up"
+   
+    clearSearchbtn.style.display="block"
+    historydiv.style.display="block"
+    dropdown()
+})}
+}
 
 $('.dropdown-trigger').dropdown();
+dropdown()
