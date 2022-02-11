@@ -38,10 +38,10 @@ https://newsdata.io/
 
 ## The URL of the deployed application.
 
-https://github.com/JosephCurtis1999/CryptocurrencyFinder
+https://josephcurtis1999.github.io/CryptocurrencyFinder/
 
 ## The URL of the GitHub repository.
 
 https://github.com/JosephCurtis1999/CryptocurrencyFinder
 
-main
+
