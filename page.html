@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <!-- Link to Materialize Css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Link to css -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <!-- Title -->
+    <title>CryptoGuide</title>
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/ico" href="./Assets/Images/favicon.ico">
+    <!-- font-awesome for icons -->
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+
+
+  <body>
+    <!-- header -->
+  <header>
+      <div class="navbar-fixed">
+          <nav>
+              <div class="nav-wrapper">
+                  <a href="#" class="brand-logo custom-logo-text hide-on-med-and-down">CryptoGuide</a>
+                  <!-- Img will take you to the start of index page -->
+                  <a href="index.html" class="brand-logo center">
+                      <img src="./Assets/Images/cryptocurrency.jpg" class="custom-logo-img">
+                  </a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./CryptoBasics.html">CryptoBasics</a></li>
+                    <li><a href="./CryptoExchanges.html">Exchanges</a></li>
+                  </ul>
+                  <a class="btn-floating dropdown-trigger hide-on-large-only"  href='#' data-target='dropdown3' id="menu1"><i class="material-icons">menu</i></a>
+                  <ul id='dropdown3' class='dropdown-content'>
+    
+                    <li><a href="./index.html">Home page</a></li>
+                    <li><a href="./CryptoBasics.html">Crypto Basics</a></li>
+                    <li><a href="./CryptoExchanges.html">Exchanges</a></li>
+                  </ul>
+
+          </nav>
+      </div>
+  </header>
+
+  <div class="marquee-page">
+    
+  </div>
+
+  <table class="highlight responsive-table" id="custom-top15">
+                          
+    <thead>
+      <tr>
+          <th>   <i class="material-icons">star</i> </th>
+          <th>Number</th>
+          <th>Name</th>
+          <th>PRICE</th>
+          <th>24HR CHANGE</th>
+          <th>24HR VOLUME</td>
+          <th>MKTCAP</th>
+          <th>Link</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbody">
+    
+    
+     
+    </tbody>
+                      
+    </table>
+
+
+
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="./Assets/js/script2.js"></script>
+</body>
+</html>
