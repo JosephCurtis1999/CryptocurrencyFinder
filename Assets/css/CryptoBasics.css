@@ -10,12 +10,13 @@ h1{
   font-variant: small-caps;
   margin-bottom:0px;
 } 
-  /* .card, .card-2, .card-3, .card-4, .card-5, .card-6 {
+
+.card, .card-2, .card-3, .card-4, .card-5, .card-6 {
     margin: 100px auto 0;
     width: 450px;
     height: 500px;
-  } */
-  
+  } 
+   
   .card__inner, .card__inner-2, .card__inner-3, .card__inner-4, .card__inner-5, .card__inner-6 {
     width: 100%;
     height: 100%;
