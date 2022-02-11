@@ -1,4 +1,3 @@
-
 # CryptoGuide
 
 ## Description.
@@ -22,7 +21,8 @@ Nadine, Joe and I have collaborated on this task and created an application that
 ---
 
 ## Demo
-![Project1 Demo](assets/Images/Cryptocurrency-finder.gif)
+
+![Project1 Demo](Assets/Images/Cryptocurrency-finder.gif)
 
 ---
 
@@ -43,5 +43,3 @@ https://josephcurtis1999.github.io/CryptocurrencyFinder/
 ## The URL of the GitHub repository.
 
 https://github.com/JosephCurtis1999/CryptocurrencyFinder
-
-
